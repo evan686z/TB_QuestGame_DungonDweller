@@ -1,0 +1,16 @@
+Notes:
+
+	Change raceType to classtype(warrior, mage, archer)
+
+	each room has an ID can only access rooms next to other rooms
+	EastLocID
+	WestLocID
+	NorthLocID
+	SouthLocID
+
+	change character fields to protected, still like private only derived can access it
+
+	inputbox change so it wont crash?
+	consoleView displayinputboxprompt?
+	
+	CHANGE ALL TRAVELER NAMES TO DUNGEON RELATED NAMES

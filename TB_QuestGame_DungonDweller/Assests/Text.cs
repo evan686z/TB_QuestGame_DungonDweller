@@ -143,7 +143,7 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
-        public static string ListSpaceTimeLocations(IEnumerable<SpaceTimeLocation> spaceTimeLocations)
+        public static string ListSpaceTimeLocations(IEnumerable<DungeonLocation> spaceTimeLocations)
         {
             string messageBoxText =
                 "Space-Time Locatoins\n" +
@@ -159,7 +159,7 @@ namespace TB_QuestGame_DungonDweller
             // display all locations
             //
             string spaceTimeLocationList = null;
-            foreach (SpaceTimeLocation spaceTimeLocation in spaceTimeLocations)
+            foreach (DungeonLocation spaceTimeLocation in spaceTimeLocations)
             {
                 spaceTimeLocationList +=
                     $"{spaceTimeLocation.SpaceTimeLocationID}".PadRight(10) +
@@ -172,7 +172,7 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
-        public static string LookAround(SpaceTimeLocation spaceTimeLocation)
+        public static string LookAround(DungeonLocation spaceTimeLocation)
         {
             string messageBoxText =
                 $"Current Location: {spaceTimeLocation.CommonName}\n" +
@@ -182,7 +182,7 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
-        public static string Travel(Traveler gameTraveler, List<SpaceTimeLocation> spaceTimeLocations)
+        public static string Travel(Traveler gameTraveler, List<DungeonLocation> spaceTimeLocations)
         {
             string messageBoxText =
                 $"{gameTraveler.Name}, Aion Base will need to know the name of the new location.\n" +
@@ -200,7 +200,7 @@ namespace TB_QuestGame_DungonDweller
             // display all locations except the current location
             //
             string spaceTimeLocationList = null;
-            foreach (SpaceTimeLocation spaceTimeLocation in spaceTimeLocations)
+            foreach (DungeonLocation spaceTimeLocation in spaceTimeLocations)
             {
                 if (spaceTimeLocation.SpaceTimeLocationID != gameTraveler.SpaceTimeLocationID)
                 {
@@ -217,7 +217,7 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
-        public static string CurrentLocationInfo(SpaceTimeLocation spaceTimeLocation)
+        public static string CurrentLocationInfo(DungeonLocation spaceTimeLocation)
         {
             string messageBoxText =
                 $"Current Location: {spaceTimeLocation.CommonName}\n" +
@@ -227,7 +227,7 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
-        public static string VisitedLocations(IEnumerable<SpaceTimeLocation> spaceTimeLocations)
+        public static string VisitedLocations(IEnumerable<DungeonLocation> spaceTimeLocations)
         {
             string messageBoxText =
                 "Space-Time Locations Visited\n" +
@@ -243,7 +243,7 @@ namespace TB_QuestGame_DungonDweller
             // display all locations except the current location
             //
             string spaceTimeLocationList = null;
-            foreach (SpaceTimeLocation spaceTimeLocation in spaceTimeLocations)
+            foreach (DungeonLocation spaceTimeLocation in spaceTimeLocations)
             {
                 spaceTimeLocationList +=
                     $"{spaceTimeLocation.SpaceTimeLocationID}".PadRight(10) +

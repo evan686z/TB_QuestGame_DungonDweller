@@ -9,7 +9,7 @@ namespace TB_QuestGame_DungonDweller
     /// <summary>
     /// class for the game map locations
     /// </summary>
-    public class SpaceTimeLocation
+    public class DungeonLocation
     {
         #region FIELDS
 

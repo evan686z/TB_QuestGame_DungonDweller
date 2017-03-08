@@ -17,7 +17,7 @@ namespace TB_QuestGame_DungonDweller
         private Traveler _gameTraveler;
         private Universe _gameUniverse;
         private bool _playingGame;
-        private SpaceTimeLocation _spaceTimeLocation;
+        private DungeonLocation _spaceTimeLocation;
 
         #endregion
 

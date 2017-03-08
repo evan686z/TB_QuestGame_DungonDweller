@@ -503,7 +503,7 @@ namespace TB_QuestGame_DungonDweller
 
         public void DisplayLookAround()
         {
-            SpaceTimeLocation currentSpaceTimeLocation = _gameUniverse.GetSpaceTimeLocationById(_gameTraveler.SpaceTimeLocationID);
+            DungeonLocation currentSpaceTimeLocation = _gameUniverse.GetSpaceTimeLocationById(_gameTraveler.SpaceTimeLocationID);
             DisplayGamePlayScreen("Current Location", Text.LookAround(currentSpaceTimeLocation), ActionMenu.MainMenu, "");
         }
 
@@ -550,7 +550,7 @@ namespace TB_QuestGame_DungonDweller
             //
             // generate a list of space-time locatinos that have been visited
             //
-            List<SpaceTimeLocation> visitedSpaceTimeLocations = new List<SpaceTimeLocation>();
+            List<DungeonLocation> visitedSpaceTimeLocations = new List<DungeonLocation>();
             foreach (int spaceTimeLocationID in _gameTraveler.SpaceTimeLocationsVisited)
             {
                 visitedSpaceTimeLocations.Add(_gameUniverse.GetSpaceTimeLocationById(spaceTimeLocationID));

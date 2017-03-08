@@ -11,10 +11,10 @@ namespace TB_QuestGame_DungonDweller
     /// </summary>
     public static class DungeonObjects
     {
-        public static List<SpaceTimeLocation> SpaceTimeLocations = new List<SpaceTimeLocation>()
+        public static List<DungeonLocation> SpaceTimeLocations = new List<DungeonLocation>()
         {
 
-            new SpaceTimeLocation
+            new DungeonLocation
             {
                 CommonName = "Aion Base Lab",
                 SpaceTimeLocationID = 1,
@@ -30,7 +30,7 @@ namespace TB_QuestGame_DungonDweller
                 ExperiencePoints = 10
             },
 
-            new SpaceTimeLocation
+            new DungeonLocation
             {
                 CommonName = "Felandrian Plains",
                 SpaceTimeLocationID = 2,
@@ -44,7 +44,7 @@ namespace TB_QuestGame_DungonDweller
                 ExperiencePoints = 10
             },
 
-            new SpaceTimeLocation
+            new DungeonLocation
             {
                 CommonName = "Xantoria Market",
                 SpaceTimeLocationID = 3,
@@ -58,7 +58,7 @@ namespace TB_QuestGame_DungonDweller
                 ExperiencePoints = 20
             },
 
-            new SpaceTimeLocation
+            new DungeonLocation
             {
                 CommonName = "Norlon Corporate Headquarters",
                 SpaceTimeLocationID = 4,
@@ -72,7 +72,7 @@ namespace TB_QuestGame_DungonDweller
                 ExperiencePoints = 10
             },
 
-            new SpaceTimeLocation
+            new DungeonLocation
             {
                 CommonName = "Abandoned Freight Ship",
                 SpaceTimeLocationID = 5,

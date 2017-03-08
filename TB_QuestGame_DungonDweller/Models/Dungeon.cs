@@ -17,9 +17,9 @@ namespace TB_QuestGame_DungonDweller
         // list of all space-time locations
         //
 
-        private List<SpaceTimeLocation> _spaceTimeLocations;
+        private List<DungeonLocation> _spaceTimeLocations;
 
-        public List<SpaceTimeLocation> SpaceTimeLocations
+        public List<DungeonLocation> SpaceTimeLocations
         {
             get { return _spaceTimeLocations; }
             set { _spaceTimeLocations = value; }
@@ -68,7 +68,7 @@ namespace TB_QuestGame_DungonDweller
             //
             // create list of space-time locations ids
             //
-            foreach (SpaceTimeLocation stl in _spaceTimeLocations)
+            foreach (DungeonLocation stl in _spaceTimeLocations)
             {
                 spaceTimeLocationIds.Add(stl.SpaceTimeLocationID);
             }
@@ -96,7 +96,7 @@ namespace TB_QuestGame_DungonDweller
         /// <returns>accessible</returns>
         public bool IsAccessibleLocation(int spaceTimeLocationId)
         {
-            SpaceTimeLocation spaceTimeLocation = GetSpaceTimeLocationById(spaceTimeLocationId);
+            DungeonLocation spaceTimeLocation = GetSpaceTimeLocationById(spaceTimeLocationId);
             if (spaceTimeLocation.Accessable == true)
             {
                 return true;
@@ -109,14 +109,14 @@ namespace TB_QuestGame_DungonDweller
         }
 
         /// <summary>
-        /// return the next available ID for a SpaceTimeLocation object
+        /// return the next available ID for a DungeonLocation object
         /// </summary>
         /// <returns>next SpaceTimeLocationObjectID </returns>
         public int GetMaxSpaceTimeLocationId()
         {
             int MaxId = 0;
 
-            foreach (SpaceTimeLocation spaceTimeLocation in SpaceTimeLocations)
+            foreach (DungeonLocation spaceTimeLocation in SpaceTimeLocations)
             {
                 if (spaceTimeLocation.SpaceTimeLocationID > MaxId)
                 {
@@ -128,18 +128,18 @@ namespace TB_QuestGame_DungonDweller
         }
 
         /// <summary>
-        /// get a SpaceTimeLocation object using an Id
+        /// get a DungeonLocation object using an Id
         /// </summary>
         /// <param name="Id">space-time location ID</param>
         /// <returns>requested space-time location</returns>
-        public SpaceTimeLocation GetSpaceTimeLocationById(int Id)
+        public DungeonLocation GetSpaceTimeLocationById(int Id)
         {
-            SpaceTimeLocation spaceTimeLocation = null;
+            DungeonLocation spaceTimeLocation = null;
 
             //
             // run through the space-time location list and grab the correct one
             //
-            foreach (SpaceTimeLocation location in _spaceTimeLocations)
+            foreach (DungeonLocation location in _spaceTimeLocations)
             {
                 if (location.SpaceTimeLocationID == Id)
                 {

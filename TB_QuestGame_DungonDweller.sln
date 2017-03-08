@@ -5,6 +5,12 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TB_QuestGame_DungonDweller", "TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller.csproj", "{399F8265-83F0-4387-B7B8-165D6AE8BF5A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Documentation", "Documentation", "{7BCFD2DF-0596-40CE-8CFE-6EDBAE563A94}"
+	ProjectSection(SolutionItems) = preProject
+		Notes.txt = Notes.txt
+		ReadMe.txt = ReadMe.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

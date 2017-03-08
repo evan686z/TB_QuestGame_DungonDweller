@@ -15,7 +15,7 @@ namespace TB_QuestGame_DungonDweller
 
         private ConsoleView _gameConsoleView;
         private Traveler _gameTraveler;
-        private Universe _gameUniverse;
+        private Dungeon _gameUniverse;
         private bool _playingGame;
         private DungeonLocation _spaceTimeLocation;
 
@@ -51,7 +51,7 @@ namespace TB_QuestGame_DungonDweller
         private void InitializeGame()
         {
             _gameTraveler = new Traveler();
-            _gameUniverse = new Universe();
+            _gameUniverse = new Dungeon();
             _gameConsoleView = new ConsoleView(_gameTraveler, _gameUniverse);
             _playingGame = true;
 

@@ -9,7 +9,7 @@ namespace TB_QuestGame_DungonDweller
     /// <summary>
     /// class of the game map
     /// </summary>
-    public class Universe
+    public class Dungeon
     {
         #region ***** define all lists to be maintained by the Universe object *****
 
@@ -30,9 +30,9 @@ namespace TB_QuestGame_DungonDweller
         #region ***** constructor *****
 
         //
-        // default Universe constructor
+        // default Dungeon constructor
         //
-        public Universe()
+        public Dungeon()
         {
             //
             // add all of the universe objects to the game
@@ -153,7 +153,7 @@ namespace TB_QuestGame_DungonDweller
             //
             if (spaceTimeLocation == null)
             {
-                string feedbackMessage = $"The Space-Time Location ID {Id} does not exist in the current Universe.";
+                string feedbackMessage = $"The Space-Time Location ID {Id} does not exist in the current Dungeon.";
                 throw new ArgumentException(Id.ToString(), feedbackMessage);
             }
 

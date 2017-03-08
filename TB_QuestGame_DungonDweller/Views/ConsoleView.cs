@@ -27,7 +27,7 @@ namespace TB_QuestGame_DungonDweller
         // declare game objects for the ConsoleView object to use
         //
         Traveler _gameTraveler;
-        Universe _gameUniverse;
+        Dungeon _gameUniverse;
 
         ViewStatus _viewStatus;
 
@@ -42,7 +42,7 @@ namespace TB_QuestGame_DungonDweller
         /// <summary>
         /// default constructor to create the console view objects
         /// </summary>
-        public ConsoleView(Traveler gameTraveler, Universe gameUniverse)
+        public ConsoleView(Traveler gameTraveler, Dungeon gameUniverse)
         {
             _gameTraveler = gameTraveler;
             _gameUniverse = gameUniverse;

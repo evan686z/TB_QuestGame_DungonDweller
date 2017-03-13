@@ -13,6 +13,6 @@ namespace TB_QuestGame_DungonDweller
     {
         public string MenuName { get; set; }
         public string MenuTitle { get; set; }
-        public Dictionary<char, TravelerAction> MenuChoices { get; set; }
+        public Dictionary<char, AdventurerAction> MenuChoices { get; set; }
     }
 }

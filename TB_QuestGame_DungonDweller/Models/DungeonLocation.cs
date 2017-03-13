@@ -14,9 +14,8 @@ namespace TB_QuestGame_DungonDweller
         #region FIELDS
 
         private string _commonName;
-        private int _spaceTimeLocationID; // must be a unique value for each object
-        private int _universalDate;
-        private string _universalLocation;
+        private int _dungeonLocationID; // must be a unique value for each object
+        private int _dungeonDate;
         private string _description;
         private string _generalContents;
         private bool _accessable;
@@ -33,22 +32,16 @@ namespace TB_QuestGame_DungonDweller
             set { _commonName = value; }
         }
 
-        public int SpaceTimeLocationID
+        public int DungeonLocationID
         {
-            get { return _spaceTimeLocationID; }
-            set { _spaceTimeLocationID = value; }
+            get { return _dungeonLocationID; }
+            set { _dungeonLocationID = value; }
         }
 
-        public int UniversalDate
+        public int DungeonDate
         {
-            get { return _universalDate; }
-            set { _universalDate = value; }
-        }
-
-        public string UniversalLocation
-        {
-            get { return _universalLocation; }
-            set { _universalLocation = value; }
+            get { return _dungeonDate; }
+            set { _dungeonDate = value; }
         }
 
         public string Description

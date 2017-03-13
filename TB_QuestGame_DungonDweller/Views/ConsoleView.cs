@@ -26,8 +26,8 @@ namespace TB_QuestGame_DungonDweller
         //
         // declare game objects for the ConsoleView object to use
         //
-        Traveler _gameTraveler;
-        Dungeon _gameUniverse;
+        Adventurer _gameAdventurer;
+        Dungeon _gameDungeon;
 
         ViewStatus _viewStatus;
 
@@ -42,10 +42,10 @@ namespace TB_QuestGame_DungonDweller
         /// <summary>
         /// default constructor to create the console view objects
         /// </summary>
-        public ConsoleView(Traveler gameTraveler, Dungeon gameUniverse)
+        public ConsoleView(Adventurer gameTraveler, Dungeon gameUniverse)
         {
-            _gameTraveler = gameTraveler;
-            _gameUniverse = gameUniverse;
+            _gameAdventurer = gameTraveler;
+            _gameDungeon = gameUniverse;
 
             _viewStatus = ViewStatus.TravelerInitialization;
 
@@ -92,9 +92,9 @@ namespace TB_QuestGame_DungonDweller
         /// get a action menu choice from the user
         /// </summary>
         /// <returns>action menu choice</returns>
-        public TravelerAction GetActionMenuChoice(Menu menu)
+        public AdventurerAction GetActionMenuChoice(Menu menu)
         {
-            TravelerAction choosenAction = TravelerAction.None;
+            AdventurerAction choosenAction = AdventurerAction.None;
             Console.CursorVisible = false;
 
             //
@@ -192,14 +192,12 @@ namespace TB_QuestGame_DungonDweller
 
             Console.SetCursorPosition(0, 10);
             string tabSpace = new String(' ', 35);
-            Console.WriteLine(tabSpace + @" _____ _              ___  _               ______          _           _   ");
-            Console.WriteLine(tabSpace + @"|_   _| |            / _ \(_)              | ___ \        (_)         | |  ");
-            Console.WriteLine(tabSpace + @"  | | | |__   ___   / /_\ \_  ___  _ __    | |_/ _ __ ___  _  ___  ___| |_ ");
-            Console.WriteLine(tabSpace + @"  | | | '_ \ / _ \  |  _  | |/ _ \| '_ \   |  __| '__/ _ \| |/ _ \/ __| __|");
-            Console.WriteLine(tabSpace + @"  | | | | | |  __/  | | | | | (_) | | | |  | |  | | | (_) | |  __| (__| |_ ");
-            Console.WriteLine(tabSpace + @"  \_/ |_| |_|\___|  \_| |_|_|\___/|_| |_|  \_|  |_|  \___/| |\___|\___|\__|");
-            Console.WriteLine(tabSpace + @"                                                         _/ |              ");
-            Console.WriteLine(tabSpace + @"                                                        |__/             ");
+            Console.WriteLine(tabSpace + @"      ___                                         ___               _ _           ");
+            Console.WriteLine(tabSpace + @"     /   \_   _ _ __   __ _  ___  ___  _ __      /   \__      _____| | | ___ _ __ ");
+            Console.WriteLine(tabSpace + @"    / /\ / | | | '_ \ / _` |/ _ \/ _ \| '_ \    / /\ /\ \ /\ / / _ \ | |/ _ \ '__|");
+            Console.WriteLine(tabSpace + @"   / /_//| |_| | | | | (_| |  __/ (_) | | | |  / /_//  \ V  V /  __/ | |  __/ |   ");
+            Console.WriteLine(tabSpace + @"  /___,'  \__,_|_| |_|\__, |\___|\___/|_| |_| /___,'    \_/\_/ \___|_|_|\___|_|   ");
+            Console.WriteLine(tabSpace + @"                      |___/                                                       ");
 
             Console.SetCursorPosition(80, 25);
             Console.Write("Press any key to continue or Esc to exit.");
@@ -223,7 +221,7 @@ namespace TB_QuestGame_DungonDweller
             ConsoleWindowControl.DisableResize();
             ConsoleWindowControl.DisableMaximize();
             ConsoleWindowControl.DisableMinimize();
-            Console.Title = "The Aion Project";
+            Console.Title = "Dungeon Dweller";
 
             //
             // set the default console window values
@@ -266,9 +264,9 @@ namespace TB_QuestGame_DungonDweller
             Console.ForegroundColor = ConsoleTheme.MenuForegroundColor;
             int topRow = ConsoleLayout.MenuBoxPositionTop + 3;
 
-            foreach (KeyValuePair<char, TravelerAction> menuChoice in menu.MenuChoices)
+            foreach (KeyValuePair<char, AdventurerAction> menuChoice in menu.MenuChoices)
             {
-                if (menuChoice.Value != TravelerAction.None)
+                if (menuChoice.Value != AdventurerAction.None)
                 {
                     string formatedMenuChoice = ConsoleWindowHelper.ToLabelFormat(menuChoice.Value.ToString());
                     Console.SetCursorPosition(ConsoleLayout.MenuBoxPositionLeft + 3, topRow++);
@@ -360,7 +358,7 @@ namespace TB_QuestGame_DungonDweller
                 //
                 int startingRow = ConsoleLayout.StatusBoxPositionTop + 3;
                 int row = startingRow;
-                foreach (string statusTextLine in Text.StatusBox(_gameTraveler))
+                foreach (string statusTextLine in Text.StatusBox(_gameAdventurer))
                 {
                     Console.SetCursorPosition(ConsoleLayout.StatusBoxPositionLeft + 3, row);
                     Console.Write(statusTextLine);
@@ -440,44 +438,44 @@ namespace TB_QuestGame_DungonDweller
         /// <summary>
         /// get the player's initial information at the beginning of the game
         /// </summary>
-        /// <returns>traveler object with all properties updated</returns>
-        public Traveler GetInitialTravelerInfo()
+        /// <returns>adventurer object with all properties updated</returns>
+        public Adventurer GetInitialAdventurerInfo()
         {
-            Traveler traveler = new Traveler();
+            Adventurer adventurer = new Adventurer();
 
             //
             // intro
             //
-            DisplayGamePlayScreen("Mission Initialization", Text.InitializeMissionIntro(), ActionMenu.MissionIntro, "");
+            DisplayGamePlayScreen("Quest Initialization", Text.InitializeQuestIntro(), ActionMenu.QuestIntro, "");
             GetContinueKey();
 
             //
-            // get traveler's name
+            // get adventurer's name
             //
-            DisplayGamePlayScreen("Mission Initialization - Name", Text.InitializeMissionGetTravelerName(), ActionMenu.MissionIntro, "");
+            DisplayGamePlayScreen("Quest Initialization - Name", Text.InitializeQuestGetAdventurerName(), ActionMenu.QuestIntro, "");
             DisplayInputBoxPrompt("Enter your name: ");
-            traveler.Name = GetString();
+            adventurer.Name = GetString();
 
             //
-            // get traveler's age
+            // get adventurer's age
             //
-            DisplayGamePlayScreen("Mission Initialization - Age", Text.InitializeMissionGetTravelerAge(traveler.Name), ActionMenu.MissionIntro, "");
+            DisplayGamePlayScreen("Quest Initialization - Age", Text.InitializeQuestGetAdventurerAge(adventurer.Name), ActionMenu.QuestIntro, "");
             int gameTravelerAge;
 
-            GetInteger($"Enter your age {traveler.Name}: ", 0, 1000000, out gameTravelerAge);
-            traveler.Age = gameTravelerAge;
+            GetInteger($"Enter your age {adventurer.Name}: ", 0, 1000000, out gameTravelerAge);
+            adventurer.Age = gameTravelerAge;
 
             //
-            // get traveler's race
+            // get adventurer's race
             //
-            DisplayGamePlayScreen("Mission Initialization - Race", Text.InitializeMissionGetTravelerRace(traveler), ActionMenu.MissionIntro, "");
-            DisplayInputBoxPrompt($"Enter your race {traveler.Name}: ");
-            traveler.Race = GetRace();
+            DisplayGamePlayScreen("Quest Initialization - Race", Text.InitializeQuestGetAdventurerRace(adventurer), ActionMenu.QuestIntro, "");
+            DisplayInputBoxPrompt($"Enter your race {adventurer.Name}: ");
+            adventurer.Race = GetRace();
 
             //
-            // echo the traveler's info
+            // echo the adventurer's info
             //
-            DisplayGamePlayScreen("Mission Initialization - Complete", Text.InitializeMissionEchoTravelerInfo(traveler), ActionMenu.MissionIntro, "");
+            DisplayGamePlayScreen("Quest Initialization - Complete", Text.InitializeQuestEchoAdventurerInfo(adventurer), ActionMenu.QuestIntro, "");
             GetContinueKey();
 
             // 
@@ -485,34 +483,34 @@ namespace TB_QuestGame_DungonDweller
             //
             _viewStatus = ViewStatus.PlayingGame;
 
-            return traveler;
+            return adventurer;
         }
 
         #region ----- display responses to menu action choices -----
 
-        public void DisplayTravelerInfo()
+        public void DisplayAdventurerInfo()
         {
-            DisplayGamePlayScreen("Traveler Information", Text.TravelerInfo(_gameTraveler), ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Adventurer Information", Text.AdventurerInfo(_gameAdventurer), ActionMenu.MainMenu, "");
         }
 
-        public void DisplayListOfSpaceTimeLocations()
+        public void DisplayListOfDungeonLocations()
         {
-            DisplayGamePlayScreen("List: Space-Time Locations", Text.ListSpaceTimeLocations(_gameUniverse.SpaceTimeLocations),
+            DisplayGamePlayScreen("List: Dungeon Locations", Text.ListDungeonLocations(_gameDungeon.SpaceTimeLocations),
                 ActionMenu.MainMenu, "");
         }
 
         public void DisplayLookAround()
         {
-            DungeonLocation currentSpaceTimeLocation = _gameUniverse.GetSpaceTimeLocationById(_gameTraveler.SpaceTimeLocationID);
+            DungeonLocation currentSpaceTimeLocation = _gameDungeon.GetSpaceTimeLocationById(_gameAdventurer.DungeonLocationID);
             DisplayGamePlayScreen("Current Location", Text.LookAround(currentSpaceTimeLocation), ActionMenu.MainMenu, "");
         }
 
-        public int DisplayGetNextSpaceTimeLocation()
+        public int DisplayGetNextDungeonLocation()
         {
             int spaceTimeLocationId = 0;
             bool validSpaceTimeLocationID = false;
 
-            DisplayGamePlayScreen("Travel to a new Space-Time Location", Text.Travel(_gameTraveler, _gameUniverse.SpaceTimeLocations),
+            DisplayGamePlayScreen("Travel to a new Dungeon Location", Text.Travel(_gameAdventurer, _gameDungeon.SpaceTimeLocations),
                 ActionMenu.MainMenu, "");
 
             while (!validSpaceTimeLocationID)
@@ -520,14 +518,14 @@ namespace TB_QuestGame_DungonDweller
                 //
                 // get an integer from the player
                 //
-                GetInteger($"Enter your new location {_gameTraveler.Name}: ", 1, _gameUniverse.GetMaxSpaceTimeLocationId(), out spaceTimeLocationId);
+                GetInteger($"Enter your new location {_gameAdventurer.Name}: ", 1, _gameDungeon.GetMaxSpaceTimeLocationId(), out spaceTimeLocationId);
 
                 //
                 // validate integer as a valid space-time location id and determine accessibility
                 //
-                if (_gameUniverse.IsValidSpaceTimeLocationId(spaceTimeLocationId))
+                if (_gameDungeon.IsValidSpaceTimeLocationId(spaceTimeLocationId))
                 {
-                    if (_gameUniverse.GetSpaceTimeLocationById(spaceTimeLocationId).Accessable)
+                    if (_gameDungeon.GetSpaceTimeLocationById(spaceTimeLocationId).Accessable)
                     {
                         validSpaceTimeLocationID = true;
                     }
@@ -548,15 +546,15 @@ namespace TB_QuestGame_DungonDweller
         public void DisplayLocationsVisited()
         {
             //
-            // generate a list of space-time locatinos that have been visited
+            // generate a list of dungeon locatinos that have been visited
             //
             List<DungeonLocation> visitedSpaceTimeLocations = new List<DungeonLocation>();
-            foreach (int spaceTimeLocationID in _gameTraveler.SpaceTimeLocationsVisited)
+            foreach (int spaceTimeLocationID in _gameAdventurer.DungeonLocationsVisited)
             {
-                visitedSpaceTimeLocations.Add(_gameUniverse.GetSpaceTimeLocationById(spaceTimeLocationID));
+                visitedSpaceTimeLocations.Add(_gameDungeon.GetSpaceTimeLocationById(spaceTimeLocationID));
             }
 
-            DisplayGamePlayScreen("Space-Time Locations Visited", Text.VisitedLocations(visitedSpaceTimeLocations), ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Dungeon Locations Visited", Text.VisitedLocations(visitedSpaceTimeLocations), ActionMenu.MainMenu, "");
         }
 
         #endregion

@@ -11,15 +11,14 @@ namespace TB_QuestGame_DungonDweller
     /// </summary>
     public static class DungeonObjects
     {
-        public static List<DungeonLocation> SpaceTimeLocations = new List<DungeonLocation>()
+        public static List<DungeonLocation> DungeonLocations = new List<DungeonLocation>()
         {
 
             new DungeonLocation
             {
                 CommonName = "Aion Base Lab",
-                SpaceTimeLocationID = 1,
-                UniversalDate = 386759,
-                UniversalLocation = "P-3, SS-278, G-2976, LS-3976",
+                DungeonLocationID = 1,
+                DungeonDate = 386759,
                 Description = "The Norlon Corporation research facility located in " +
                     "the city of Heraklion on the north coast of Crete and the top secret " +
                     "research lab for the Aion Project.\n",
@@ -33,9 +32,8 @@ namespace TB_QuestGame_DungonDweller
             new DungeonLocation
             {
                 CommonName = "Felandrian Plains",
-                SpaceTimeLocationID = 2,
-                UniversalDate = 386759,
-                UniversalLocation = "P-2, SS-85, G-2976, LS-3976",
+                DungeonLocationID = 2,
+                DungeonDate = 386759,
                 Description = "The Felandrian Plains are a common destination for tourist. " +
                     "Located just north of the equatorial line on the planet of Corlon, they " +
                     "provide excellent habitat for a rich ecosystem of flora and fauna.",
@@ -47,9 +45,8 @@ namespace TB_QuestGame_DungonDweller
             new DungeonLocation
             {
                 CommonName = "Xantoria Market",
-                SpaceTimeLocationID = 3,
-                UniversalDate = 386759,
-                UniversalLocation = "P-6, SS-3978, G-2976, LS-3976",
+                DungeonLocationID = 3,
+                DungeonDate = 386759,
                 Description = "The Xantoria market, once controlled by the Thorian elite, is now an " +
                               "open market managed by the Xantorian Commerce Coop. It is a place " +
                               "where many races from various systems trade goods.",
@@ -61,9 +58,8 @@ namespace TB_QuestGame_DungonDweller
             new DungeonLocation
             {
                 CommonName = "Norlon Corporate Headquarters",
-                SpaceTimeLocationID = 4,
-                UniversalDate = 386759,
-                UniversalLocation = "P-3, SS-278, G-2976, LS-3976",
+                DungeonLocationID = 4,
+                DungeonDate = 386759,
                 Description = "The Norlon Corporation Headquarters is located in just outside of Detroit Michigan." +
                               "Norlon, founded in 1985 as a bio-tech company, is now a 36 billion dollar company " +
                               "with huge holdings in defense and space research and development.",
@@ -75,9 +71,8 @@ namespace TB_QuestGame_DungonDweller
             new DungeonLocation
             {
                 CommonName = "Abandoned Freight Ship",
-                SpaceTimeLocationID = 5,
-                UniversalDate = 386759,
-                UniversalLocation = "P-7, SS-3456, G-2976, LS-3976",
+                DungeonLocationID = 5,
+                DungeonDate = 386759,
                 Description = "An abandoned space ship looms just out of plaent Velisoid." +
                               "The ship hull is riddled with projectile sized holes and one of " +
                               "the four rear engines is missing. Something terrible happened here.",

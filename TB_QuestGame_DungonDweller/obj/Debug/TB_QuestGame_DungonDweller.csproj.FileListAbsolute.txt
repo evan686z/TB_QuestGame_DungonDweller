@@ -1,1 +1,6 @@
 C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\bin\Debug\TB_QuestGame_DungonDweller.exe.config
+C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\bin\Debug\TB_QuestGame_DungonDweller.exe
+C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\bin\Debug\TB_QuestGame_DungonDweller.pdb
+C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\obj\Debug\TB_QuestGame_DungonDweller.csprojResolveAssemblyReference.cache
+C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\obj\Debug\TB_QuestGame_DungonDweller.exe
+C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\obj\Debug\TB_QuestGame_DungonDweller.pdb

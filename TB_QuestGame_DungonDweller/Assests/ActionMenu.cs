@@ -11,13 +11,13 @@ namespace TB_QuestGame_DungonDweller
     /// </summary>
     public static class ActionMenu
     {
-        public static Menu MissionIntro = new Menu()
+        public static Menu QuestIntro = new Menu()
         {
-            MenuName = "MissionIntro",
+            MenuName = "QuestIntro",
             MenuTitle = "",
-            MenuChoices = new Dictionary<char, TravelerAction>()
+            MenuChoices = new Dictionary<char, AdventurerAction>()
                     {
-                        { ' ', TravelerAction.None }
+                        { ' ', AdventurerAction.None }
                     }
         };
 
@@ -25,9 +25,9 @@ namespace TB_QuestGame_DungonDweller
         {
             MenuName = "InitializeMission",
             MenuTitle = "Initialize Mission",
-            MenuChoices = new Dictionary<char, TravelerAction>()
+            MenuChoices = new Dictionary<char, AdventurerAction>()
                 {
-                    { '1', TravelerAction.Exit }
+                    { '1', AdventurerAction.Exit }
                 }
         };
 
@@ -35,14 +35,14 @@ namespace TB_QuestGame_DungonDweller
         {
             MenuName = "MainMenu",
             MenuTitle = "Main Menu",
-            MenuChoices = new Dictionary<char, TravelerAction>()
+            MenuChoices = new Dictionary<char, AdventurerAction>()
                 {
-                    { '1', TravelerAction.TravelerInfo },
-                    { '2', TravelerAction.LookAround },
-                    { '3', TravelerAction.Travel },
-                    { '4', TravelerAction.TravelerLocationsVisited },
-                    { '5', TravelerAction.ListSpaceTimeLocations },
-                    { '0', TravelerAction.Exit }
+                    { '1', AdventurerAction.TravelerInfo },
+                    { '2', AdventurerAction.LookAround },
+                    { '3', AdventurerAction.Travel },
+                    { '4', AdventurerAction.TravelerLocationsVisited },
+                    { '5', AdventurerAction.ListSpaceTimeLocations },
+                    { '0', AdventurerAction.Exit }
                 }
         };
     }

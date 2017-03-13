@@ -49,7 +49,7 @@ namespace TB_QuestGame_DungonDweller
         /// </summary>
         private void IntializeUniverse()
         {
-            _spaceTimeLocations = UniverseObjects.SpaceTimeLocations;
+            _spaceTimeLocations = DungeonObjects.DungeonLocations;
         }
 
         #endregion
@@ -70,7 +70,7 @@ namespace TB_QuestGame_DungonDweller
             //
             foreach (DungeonLocation stl in _spaceTimeLocations)
             {
-                spaceTimeLocationIds.Add(stl.SpaceTimeLocationID);
+                spaceTimeLocationIds.Add(stl.DungeonLocationID);
             }
 
             //
@@ -118,9 +118,9 @@ namespace TB_QuestGame_DungonDweller
 
             foreach (DungeonLocation spaceTimeLocation in SpaceTimeLocations)
             {
-                if (spaceTimeLocation.SpaceTimeLocationID > MaxId)
+                if (spaceTimeLocation.DungeonLocationID > MaxId)
                 {
-                    MaxId = spaceTimeLocation.SpaceTimeLocationID;
+                    MaxId = spaceTimeLocation.DungeonLocationID;
                 }
             }
 
@@ -141,7 +141,7 @@ namespace TB_QuestGame_DungonDweller
             //
             foreach (DungeonLocation location in _spaceTimeLocations)
             {
-                if (location.SpaceTimeLocationID == Id)
+                if (location.DungeonLocationID == Id)
                 {
                     spaceTimeLocation = location;
                 }

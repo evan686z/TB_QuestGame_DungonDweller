@@ -20,6 +20,10 @@ namespace TB_QuestGame_DungonDweller
 
         private int _iq;
         private int _healthPotions;
+        private int _experiencePoints;
+        private int _health;
+        private int _lives;
+        private List<int> _dungeonLocationsVisited;
 
         #endregion
 
@@ -36,13 +40,34 @@ namespace TB_QuestGame_DungonDweller
             get { return _healthPotions; }
             set { _healthPotions = value; }
         }
+
+        public int ExperiencePoints
+        {
+            get { return _experiencePoints; }
+            set { _experiencePoints = value; }
+        }
+        public int Health
+        {
+            get { return _health; }
+            set { _health = value; }
+        }
+        public int Lives
+        {
+            get { return _lives; }
+            set { _lives = value; }
+        }
+        public List<int> DungeonLocationsVisited
+        {
+            get { return _dungeonLocationsVisited; }
+            set { _dungeonLocationsVisited = value; }
+        }
         #endregion
 
         #region CONSTRUCTORS
 
         public Adventurer()
         {
-
+            _dungeonLocationsVisited = new List<int>();
         }
 
         public Adventurer(string name, int age, RaceType race, int iq, int healthPotions, int dungeonLocationID) : base(name, age, race, dungeonLocationID)
@@ -54,6 +79,17 @@ namespace TB_QuestGame_DungonDweller
 
         #region METHODS
 
+        public bool HasVisited(int _dungeonLocationID)
+        {
+            if (DungeonLocationsVisited.Contains(_dungeonLocationID))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         #endregion
     }

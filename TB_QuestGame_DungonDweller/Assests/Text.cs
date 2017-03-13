@@ -11,8 +11,8 @@ namespace TB_QuestGame_DungonDweller
     /// </summary>
     public static class Text
     {
-        public static List<string> HeaderText = new List<string>() { "The Aion Project" };
-        public static List<string> FooterText = new List<string>() { "Laughing Leaf Productions, 2016" };
+        public static List<string> HeaderText = new List<string>() { "Dungeon Dweller" };
+        public static List<string> FooterText = new List<string>() { "Red Square Productions, 2017" };
 
         #region INTITIAL GAME SETUP
 
@@ -50,7 +50,7 @@ namespace TB_QuestGame_DungonDweller
 
         #region Initialize Mission Text
 
-        public static string InitializeMissionIntro()
+        public static string InitializeQuestIntro()
         {
             string messageBoxText =
                 "Before you begin your mission we much gather your base data.\n" +
@@ -62,17 +62,17 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
-        public static string InitializeMissionGetTravelerName()
+        public static string InitializeQuestGetAdventurerName()
         {
             string messageBoxText =
-                "Enter your name traveler.\n" +
+                "Enter your name adventurer.\n" +
                 " \n" +
                 "Please use the name you wish to be referred during your mission.";
 
             return messageBoxText;
         }
 
-        public static string InitializeMissionGetTravelerAge(string name)
+        public static string InitializeQuestGetAdventurerAge(string name)
         {
             string messageBoxText =
                 $"Very good then, we will call you {name} on this mission.\n" +
@@ -84,7 +84,7 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
-        public static string InitializeMissionGetTravelerRace(Traveler gameTraveler)
+        public static string InitializeQuestGetAdventurerRace(Adventurer gameTraveler)
         {
             string messageBoxText =
                 $"{gameTraveler.Name}, it will be important for us to know your race on this mission.\n" +
@@ -109,17 +109,17 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
-        public static string InitializeMissionEchoTravelerInfo(Traveler gameTraveler)
+        public static string InitializeQuestEchoAdventurerInfo(Adventurer gameAdventurer)
         {
             string messageBoxText =
-                $"Very good then {gameTraveler.Name}.\n" +
+                $"Very good then {gameAdventurer.Name}.\n" +
                 " \n" +
                 "It appears we have all the necessary data to begin your mission. You will find it" +
                 " listed below.\n" +
                 " \n" +
-                $"\tTraveler Name: {gameTraveler.Name}\n" +
-                $"\tTraveler Age: {gameTraveler.Age}\n" +
-                $"\tTraveler Race: {gameTraveler.Race}\n" +
+                $"\tTraveler Name: {gameAdventurer.Name}\n" +
+                $"\tTraveler Age: {gameAdventurer.Age}\n" +
+                $"\tTraveler Race: {gameAdventurer.Race}\n" +
                 " \n" +
                 "Press any key to begin your mission.";
 
@@ -132,18 +132,18 @@ namespace TB_QuestGame_DungonDweller
 
         #region MAIN MENU ACTION SCREENS
 
-        public static string TravelerInfo(Traveler gameTraveler)
+        public static string AdventurerInfo(Adventurer gameDungeon)
         {
             string messageBoxText =
-                $"\tTraveler Name: {gameTraveler.Name}\n" +
-                $"\tTraveler Age: {gameTraveler.Age}\n" +
-                $"\tTraveler Race: {gameTraveler.Race}\n" +
+                $"\tTraveler Name: {gameDungeon.Name}\n" +
+                $"\tTraveler Age: {gameDungeon.Age}\n" +
+                $"\tTraveler Race: {gameDungeon.Race}\n" +
                 " \n";
 
             return messageBoxText;
         }
 
-        public static string ListSpaceTimeLocations(IEnumerable<DungeonLocation> spaceTimeLocations)
+        public static string ListDungeonLocations(IEnumerable<DungeonLocation> dungeonLocations)
         {
             string messageBoxText =
                 "Space-Time Locatoins\n" +
@@ -159,10 +159,10 @@ namespace TB_QuestGame_DungonDweller
             // display all locations
             //
             string spaceTimeLocationList = null;
-            foreach (DungeonLocation spaceTimeLocation in spaceTimeLocations)
+            foreach (DungeonLocation spaceTimeLocation in dungeonLocations)
             {
                 spaceTimeLocationList +=
-                    $"{spaceTimeLocation.SpaceTimeLocationID}".PadRight(10) +
+                    $"{spaceTimeLocation.DungeonLocationID}".PadRight(10) +
                     $"{spaceTimeLocation.CommonName}".PadRight(30) +
                     Environment.NewLine;
             }
@@ -172,20 +172,20 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
-        public static string LookAround(DungeonLocation spaceTimeLocation)
+        public static string LookAround(DungeonLocation dungeonLocation)
         {
             string messageBoxText =
-                $"Current Location: {spaceTimeLocation.CommonName}\n" +
+                $"Current Location: {dungeonLocation.CommonName}\n" +
                 " \n" +
-                spaceTimeLocation.GeneralContents;
+                dungeonLocation.GeneralContents;
 
             return messageBoxText;
         }
 
-        public static string Travel(Traveler gameTraveler, List<DungeonLocation> spaceTimeLocations)
+        public static string Travel(Adventurer gameDungeon, List<DungeonLocation> dungeonLocations)
         {
             string messageBoxText =
-                $"{gameTraveler.Name}, Aion Base will need to know the name of the new location.\n" +
+                $"{gameDungeon.Name}, Aion Base will need to know the name of the new location.\n" +
                 " \n" +
                 "Enter the ID number of your desired location from the table below.\n" +
                 " \n" +
@@ -199,38 +199,38 @@ namespace TB_QuestGame_DungonDweller
             //
             // display all locations except the current location
             //
-            string spaceTimeLocationList = null;
-            foreach (DungeonLocation spaceTimeLocation in spaceTimeLocations)
+            string dungeonLocationList = null;
+            foreach (DungeonLocation dungeonLocation in dungeonLocations)
             {
-                if (spaceTimeLocation.SpaceTimeLocationID != gameTraveler.SpaceTimeLocationID)
+                if (dungeonLocation.DungeonLocationID != gameDungeon.DungeonLocationID)
                 {
-                    spaceTimeLocationList +=
-                        $"{spaceTimeLocation.SpaceTimeLocationID}".PadRight(10) +
-                        $"{spaceTimeLocation.CommonName}".PadRight(30) +
-                        $"{spaceTimeLocation.Accessable}".PadRight(10) +
+                    dungeonLocationList +=
+                        $"{dungeonLocation.DungeonLocationID}".PadRight(10) +
+                        $"{dungeonLocation.CommonName}".PadRight(30) +
+                        $"{dungeonLocation.Accessable}".PadRight(10) +
                         Environment.NewLine;
                 }
             }
 
-            messageBoxText += spaceTimeLocationList;
+            messageBoxText += dungeonLocationList;
 
             return messageBoxText;
         }
 
-        public static string CurrentLocationInfo(DungeonLocation spaceTimeLocation)
+        public static string CurrentLocationInfo(DungeonLocation dungeonLocation)
         {
             string messageBoxText =
-                $"Current Location: {spaceTimeLocation.CommonName}\n" +
+                $"Current Location: {dungeonLocation.CommonName}\n" +
                 " \n" +
-                spaceTimeLocation.Description;
+                dungeonLocation.Description;
 
             return messageBoxText;
         }
 
-        public static string VisitedLocations(IEnumerable<DungeonLocation> spaceTimeLocations)
+        public static string VisitedLocations(IEnumerable<DungeonLocation> dungeonLocations)
         {
             string messageBoxText =
-                "Space-Time Locations Visited\n" +
+                "Dungeon Locations Visited\n" +
                 " \n" +
 
                 //
@@ -242,30 +242,30 @@ namespace TB_QuestGame_DungonDweller
             //
             // display all locations except the current location
             //
-            string spaceTimeLocationList = null;
-            foreach (DungeonLocation spaceTimeLocation in spaceTimeLocations)
+            string dungeonLocationList = null;
+            foreach (DungeonLocation dungeonLocation in dungeonLocations)
             {
-                spaceTimeLocationList +=
-                    $"{spaceTimeLocation.SpaceTimeLocationID}".PadRight(10) +
-                    $"{spaceTimeLocation.CommonName}".PadRight(30) +
-                    $"{spaceTimeLocation.Accessable}".PadRight(10) +
+                dungeonLocationList +=
+                    $"{dungeonLocation.DungeonLocationID}".PadRight(10) +
+                    $"{dungeonLocation.CommonName}".PadRight(30) +
+                    $"{dungeonLocation.Accessable}".PadRight(10) +
                     Environment.NewLine;
             }
 
-            messageBoxText += spaceTimeLocationList;
+            messageBoxText += dungeonLocationList;
 
             return messageBoxText;
         }
 
         #endregion
 
-        public static List<string> StatusBox(Traveler traveler)
+        public static List<string> StatusBox(Adventurer adventurer)
         {
             List<string> statusBoxText = new List<string>();
 
-            statusBoxText.Add($"Experience Points: {traveler.ExperiencePoints}\n");
-            statusBoxText.Add($"Health: {traveler.Health}\n");
-            statusBoxText.Add($"Lives: {traveler.Lives}\n");
+            statusBoxText.Add($"Experience Points: {adventurer.ExperiencePoints}\n");
+            statusBoxText.Add($"Health: {adventurer.Health}\n");
+            statusBoxText.Add($"Lives: {adventurer.Lives}\n");
 
             return statusBoxText;
         }

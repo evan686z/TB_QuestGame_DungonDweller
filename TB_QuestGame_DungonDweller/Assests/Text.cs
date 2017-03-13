@@ -16,21 +16,20 @@ namespace TB_QuestGame_DungonDweller
 
         #region INTITIAL GAME SETUP
 
-        public static string MissionIntro()
+        public static string QuestIntro()
         {
             string messageBoxText =
-            "You have been hired by the Norlon Corporation to participate " +
-            "in its latest endeavor, the Aion Project. Your mission is to " +
-            "test the limits of the new Aion Engine and report back to " +
-            "the Norlon Corporation.\n" +
+            "You have been hired by the local ruler, King Leopold, " +
+            "in order to rid the area of a dangerous foe. Your quest is to " +
+            "slay the beast known as Krosus, a demon from another dimension " +
+            "and only return to the King if you are successful.\n" +
+            "Failure is not an option, the lands fate depends on you.\n" +
             " \n" +
-            "Press the Esc key to exit the game at any point.\n" +
+            "Your quest begins now.\n" +
             " \n" +
-            "Your mission begins now.\n" +
+            "\tYour first task will be to set up the initial details of your quest.\n" +
             " \n" +
-            "\tYour first task will be to set up the initial parameters of your mission.\n" +
-            " \n" +
-            "\tPress any key to begin the Mission Initialization Process.\n";
+            "\tPress any key to begin your journey.\n";
 
             return messageBoxText;
         }
@@ -38,10 +37,9 @@ namespace TB_QuestGame_DungonDweller
         public static string CurrrentLocationInfo()
         {
             string messageBoxText =
-            "You are now in the Norlon Corporation research facility located in " +
-            "the city of Heraklion on the north coast of Crete. You have passed through " +
-            "heavy security and descended an unknown number of levels to the top secret " +
-            "research lab for the Aion Project.\n" +
+            "You now stand at the entrance of the dungeon. " +
+            "You ready yourself for what might be the battle of your life. " +
+            "Many lives depend on your success.\n" +
             " \n" +
             "\tChoose from the menu options to proceed.\n";
 
@@ -53,9 +51,9 @@ namespace TB_QuestGame_DungonDweller
         public static string InitializeQuestIntro()
         {
             string messageBoxText =
-                "Before you begin your mission we much gather your base data.\n" +
+                "Before you begin your quest we much gather some information about you.\n" +
                 " \n" +
-                "You will be prompted for the required information. Please enter the information below.\n" +
+                "You will be prompted for the required information.\n" +
                 " \n" +
                 "\tPress any key to begin.";
 
@@ -67,7 +65,7 @@ namespace TB_QuestGame_DungonDweller
             string messageBoxText =
                 "Enter your name adventurer.\n" +
                 " \n" +
-                "Please use the name you wish to be referred during your mission.";
+                "Please use the name you wish to be referred during your quest.";
 
             return messageBoxText;
         }
@@ -75,23 +73,22 @@ namespace TB_QuestGame_DungonDweller
         public static string InitializeQuestGetAdventurerAge(string name)
         {
             string messageBoxText =
-                $"Very good then, we will call you {name} on this mission.\n" +
+                $"Very good then, we will call you {name} on this quest.\n" +
                 " \n" +
                 "Enter your age below.\n" +
-                " \n" +
-                "Please use the standard Earth year as your reference.";
+                " \n";
 
-            return messageBoxText;
+            return messageBoxText; ;
         }
 
         public static string InitializeQuestGetAdventurerRace(Adventurer gameTraveler)
         {
             string messageBoxText =
-                $"{gameTraveler.Name}, it will be important for us to know your race on this mission.\n" +
+                $"{gameTraveler.Name}, it will be important for us to know your race on this quest.\n" +
                 " \n" +
                 "Enter your race below.\n" +
                 " \n" +
-                "Please use the universal race classifications below." +
+                "Please use the race classifications below." +
                 " \n";
 
             string raceList = null;
@@ -109,19 +106,43 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
+        public static string InitializeMissionGetAdventurerIQ(Adventurer gameAdventurer)
+        {
+            string messgaeBoxText =
+                $"{gameAdventurer.Name}, you will now be given a random IQ.\n" +
+                " \n" +
+                "Please press enter to get your IQ.\n" +
+                " \n";
+
+            return messgaeBoxText;
+        }
+
+        public static string InitializeMissionGetAdventurerHealthPotions(Adventurer gameAdventurer)
+        {
+            string messageBoxText =
+                $"{gameAdventurer.Name}, you will be given 3 Health Potions to start you adventure.\n" +
+                " \n" +
+                "Use the carefully, as they are sparse in a dungeon." +
+                " \n";
+
+            return messageBoxText;
+        }
+
         public static string InitializeQuestEchoAdventurerInfo(Adventurer gameAdventurer)
         {
             string messageBoxText =
                 $"Very good then {gameAdventurer.Name}.\n" +
                 " \n" +
-                "It appears we have all the necessary data to begin your mission. You will find it" +
+                "It appears we have all the necessary data to begin your quest. You will find it" +
                 " listed below.\n" +
                 " \n" +
-                $"\tTraveler Name: {gameAdventurer.Name}\n" +
-                $"\tTraveler Age: {gameAdventurer.Age}\n" +
-                $"\tTraveler Race: {gameAdventurer.Race}\n" +
+                $"\tAdventurer Name: {gameAdventurer.Name}\n" +
+                $"\tAdventurer Age: {gameAdventurer.Age}\n" +
+                $"\tAdventurer Race: {gameAdventurer.Race}\n" +
+                $"\tAdventurer IQ: {gameAdventurer.IQ}\n" +
+                $"\tAdventurer Health Potions: {gameAdventurer.HealthPotions}\n" +
                 " \n" +
-                "Press any key to begin your mission.";
+                "Press any key to begin your quest.";
 
             return messageBoxText;
         }
@@ -132,12 +153,30 @@ namespace TB_QuestGame_DungonDweller
 
         #region MAIN MENU ACTION SCREENS
 
-        public static string AdventurerInfo(Adventurer gameDungeon)
+        public static string AdventurerInfo(Adventurer gameAdventurer)
         {
             string messageBoxText =
-                $"\tTraveler Name: {gameDungeon.Name}\n" +
-                $"\tTraveler Age: {gameDungeon.Age}\n" +
-                $"\tTraveler Race: {gameDungeon.Race}\n" +
+                $"\tAdventurer Name: {gameAdventurer.Name}\n" +
+                $"\tAdventurer Age: {gameAdventurer.Age}\n" +
+                $"\tAdventurer Race: {gameAdventurer.Race}\n" +
+                $"\tAdventurer IQ: {gameAdventurer.IQ}\n" +
+                $"\tAdventurer Health Potions: {gameAdventurer.HealthPotions}\n" +
+                " \n";
+
+            return messageBoxText;
+        }
+
+        public static string AdventurerEditInfo(Adventurer gameAdventurer)
+        {
+            string messageBoxText =
+                "If you would like to edit your adventurer, you can do it here.\n" +
+                " \n" +
+                "Your current Adventurers Name and Age appear below:\n" +
+                $"\tAdventurer Name: {gameAdventurer.Name}\n" +
+                $"\tAdventurer Age: {gameAdventurer.Age}\n" +
+                $"\tAdventurer Race: {gameAdventurer.Race}\n" +
+                " \n" +
+                "Please enter a new name, age, and race." +
                 " \n";
 
             return messageBoxText;

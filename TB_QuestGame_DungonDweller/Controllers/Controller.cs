@@ -81,7 +81,7 @@ namespace TB_QuestGame_DungonDweller
             //
             // display introductory message
             //
-            _gameConsoleView.DisplayGamePlayScreen("Mission Intro", Text.MissionIntro(), ActionMenu.QuestIntro, "");
+            _gameConsoleView.DisplayGamePlayScreen("Mission Intro", Text.QuestIntro(), ActionMenu.QuestIntro, "");
             _gameConsoleView.GetContinueKey();
 
             //
@@ -118,11 +118,11 @@ namespace TB_QuestGame_DungonDweller
                     case AdventurerAction.None:
                         break;
 
-                    case AdventurerAction.TravelerInfo:
+                    case AdventurerAction.AdventurerInfo:
                         _gameConsoleView.DisplayAdventurerInfo();
                         break;
 
-                    case AdventurerAction.ListSpaceTimeLocations:
+                    case AdventurerAction.ListDungeonLocations:
                         _gameConsoleView.DisplayListOfDungeonLocations();
                         break;
 
@@ -143,8 +143,12 @@ namespace TB_QuestGame_DungonDweller
                         _gameConsoleView.DisplayGamePlayScreen("Current Location", Text.CurrentLocationInfo(_dungeonLocation), ActionMenu.MainMenu, "");
                         break;
 
-                    case AdventurerAction.TravelerLocationsVisited:
+                    case AdventurerAction.AdventurerLocationsVisited:
                         _gameConsoleView.DisplayLocationsVisited();
+                        break;
+
+                    case AdventurerAction.EditAdventurerInfo:
+                        _gameConsoleView.DisplayEditAdventurerInfo(_gameAdventurer);
                         break;
 
                     case AdventurerAction.Exit:
@@ -172,6 +176,8 @@ namespace TB_QuestGame_DungonDweller
             _gameAdventurer.Name = adventurer.Name;
             _gameAdventurer.Age = adventurer.Age;
             _gameAdventurer.Race = adventurer.Race;
+            _gameAdventurer.IQ = adventurer.IQ;
+            _gameAdventurer.HealthPotions = adventurer.HealthPotions;
             _gameAdventurer.DungeonLocationID = 1;
 
             _gameAdventurer.ExperiencePoints = 0;

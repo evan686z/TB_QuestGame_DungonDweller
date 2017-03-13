@@ -176,6 +176,18 @@ namespace TB_QuestGame_DungonDweller
         }
 
         /// <summary>
+        /// get a random IQ for the user
+        /// </summary>
+        /// <returns></returns>
+        public int GetIQ()
+        {
+            Random random = new Random();
+            int AdventurerIQ = random.Next(70, 140);
+
+            return AdventurerIQ;
+        }
+
+        /// <summary>
         /// display splash screen
         /// </summary>
         /// <returns>player chooses to play</returns>
@@ -473,6 +485,22 @@ namespace TB_QuestGame_DungonDweller
             adventurer.Race = GetRace();
 
             //
+            // get adventurer's IQ
+            //
+            DisplayGamePlayScreen("Quest Beginnings - IQ", Text.InitializeMissionGetAdventurerIQ(adventurer), ActionMenu.QuestIntro, "");
+            DisplayInputBoxPrompt($"Press ENTER to continue.");
+            GetContinueKey();
+            adventurer.IQ = GetIQ();
+
+            //
+            // get adventurer's health potions
+            //
+            DisplayGamePlayScreen("Quest Beginnings - Health Potions", Text.InitializeMissionGetAdventurerHealthPotions(adventurer), ActionMenu.QuestIntro, "");
+            DisplayInputBoxPrompt($"Press ENTER to continue.");
+            GetContinueKey();
+            adventurer.HealthPotions = 3;
+
+            //
             // echo the adventurer's info
             //
             DisplayGamePlayScreen("Quest Initialization - Complete", Text.InitializeQuestEchoAdventurerInfo(adventurer), ActionMenu.QuestIntro, "");
@@ -491,6 +519,40 @@ namespace TB_QuestGame_DungonDweller
         public void DisplayAdventurerInfo()
         {
             DisplayGamePlayScreen("Adventurer Information", Text.AdventurerInfo(_gameAdventurer), ActionMenu.MainMenu, "");
+        }
+
+        public Adventurer DisplayEditAdventurerInfo(Adventurer adventurer)
+        {
+            string updateAdventurer = "";
+
+            // Update Name
+            DisplayGamePlayScreen("Edit Adventurer Information - Name", Text.AdventurerEditInfo(_gameAdventurer), ActionMenu.MainMenu, "");
+            DisplayInputBoxPrompt("Enter name: ");
+
+            updateAdventurer = GetString();
+            if (updateAdventurer != "")
+            {
+                adventurer.Name = updateAdventurer;
+            }
+
+            // Update Age
+            DisplayGamePlayScreen("Edit Adventurer Information - Age", Text.AdventurerEditInfo(_gameAdventurer), ActionMenu.MainMenu, "");
+            DisplayInputBoxPrompt("Enter Age: ");
+            int adventurerAge;
+
+            GetInteger($"Enter your age {adventurer.Name}: ", 0, 1000000, out adventurerAge);
+            adventurer.Age = adventurerAge;
+
+            // Update Race
+            DisplayGamePlayScreen("Edit Adventurer Information - Race", Text.InitializeQuestGetAdventurerRace(adventurer), ActionMenu.QuestIntro, "");
+            DisplayInputBoxPrompt($"Enter your race {adventurer.Name}: ");
+
+            adventurer.Race = GetRace();
+
+            // Display new info
+            DisplayGamePlayScreen("Adventurer Information", Text.AdventurerInfo(adventurer), ActionMenu.MainMenu, "");
+
+            return adventurer;
         }
 
         public void DisplayListOfDungeonLocations()

@@ -27,7 +27,7 @@ namespace TB_QuestGame_DungonDweller
             " \n" +
             "Your quest begins now.\n" +
             " \n" +
-            "\tYour first task will be to set up the initial details of your quest.\n" +
+            "Your first task will be to set up the initial details of your quest.\n" +
             " \n" +
             "\tPress any key to begin your journey.\n";
 

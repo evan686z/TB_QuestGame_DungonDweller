@@ -16,24 +16,22 @@ namespace TB_QuestGame_DungonDweller
 
             new DungeonLocation
             {
-                CommonName = "Aion Base Lab",
+                CommonName = "Dungeon Entrance",
                 DungeonLocationID = 1,
-                DungeonDate = 386759,
-                Description = "The Norlon Corporation research facility located in " +
-                    "the city of Heraklion on the north coast of Crete and the top secret " +
-                    "research lab for the Aion Project.\n",
-                GeneralContents = "The lab is a large, well lit room, and staffed " +
-                    "by a small number of scientists, all wearing light blue uniforms with the " +
-                    "hydra-like Norlan Corporation logo. \n",
+                DungeonDate = 468,
+                Description = "The entrance to the dungeon is covered in thick moss " +
+                    "that you are barely able to see threw.\n",
+                GeneralContents = " You push the moss aside to reveal a small room with a single torch " +
+                    "above a doorway. The only way forward is through this doorway.\n",
                 Accessable = true,
                 ExperiencePoints = 10
             },
 
             new DungeonLocation
             {
-                CommonName = "Felandrian Plains",
+                CommonName = "Barracks",
                 DungeonLocationID = 2,
-                DungeonDate = 386759,
+                DungeonDate = 468,
                 Description = "The Felandrian Plains are a common destination for tourist. " +
                     "Located just north of the equatorial line on the planet of Corlon, they " +
                     "provide excellent habitat for a rich ecosystem of flora and fauna.",
@@ -44,9 +42,9 @@ namespace TB_QuestGame_DungonDweller
 
             new DungeonLocation
             {
-                CommonName = "Xantoria Market",
+                CommonName = "Armory",
                 DungeonLocationID = 3,
-                DungeonDate = 386759,
+                DungeonDate = 468,
                 Description = "The Xantoria market, once controlled by the Thorian elite, is now an " +
                               "open market managed by the Xantorian Commerce Coop. It is a place " +
                               "where many races from various systems trade goods.",
@@ -57,9 +55,9 @@ namespace TB_QuestGame_DungonDweller
 
             new DungeonLocation
             {
-                CommonName = "Norlon Corporate Headquarters",
+                CommonName = "Storeroom",
                 DungeonLocationID = 4,
-                DungeonDate = 386759,
+                DungeonDate = 468,
                 Description = "The Norlon Corporation Headquarters is located in just outside of Detroit Michigan." +
                               "Norlon, founded in 1985 as a bio-tech company, is now a 36 billion dollar company " +
                               "with huge holdings in defense and space research and development.",
@@ -70,9 +68,87 @@ namespace TB_QuestGame_DungonDweller
 
             new DungeonLocation
             {
-                CommonName = "Abandoned Freight Ship",
+                CommonName = "Kitchen",
                 DungeonLocationID = 5,
-                DungeonDate = 386759,
+                DungeonDate = 468,
+                Description = "The Norlon Corporation Headquarters is located in just outside of Detroit Michigan." +
+                              "Norlon, founded in 1985 as a bio-tech company, is now a 36 billion dollar company " +
+                              "with huge holdings in defense and space research and development.",
+                GeneralContents = "- stuff in the room -",
+                Accessable = true,
+                ExperiencePoints = 10
+            },
+
+            new DungeonLocation
+            {
+                CommonName = "Eating Hall",
+                DungeonLocationID = 6,
+                DungeonDate = 468,
+                Description = "The Norlon Corporation Headquarters is located in just outside of Detroit Michigan." +
+                              "Norlon, founded in 1985 as a bio-tech company, is now a 36 billion dollar company " +
+                              "with huge holdings in defense and space research and development.",
+                GeneralContents = "- stuff in the room -",
+                Accessable = true,
+                ExperiencePoints = 10
+            },
+
+            new DungeonLocation
+            {
+                CommonName = "Library",
+                DungeonLocationID = 7,
+                DungeonDate = 468,
+                Description = "The Norlon Corporation Headquarters is located in just outside of Detroit Michigan." +
+                              "Norlon, founded in 1985 as a bio-tech company, is now a 36 billion dollar company " +
+                              "with huge holdings in defense and space research and development.",
+                GeneralContents = "- stuff in the room -",
+                Accessable = true,
+                ExperiencePoints = 10
+            },
+
+            new DungeonLocation
+            {
+                CommonName = "Crypt",
+                DungeonLocationID = 8,
+                DungeonDate = 468,
+                Description = "The Norlon Corporation Headquarters is located in just outside of Detroit Michigan." +
+                              "Norlon, founded in 1985 as a bio-tech company, is now a 36 billion dollar company " +
+                              "with huge holdings in defense and space research and development.",
+                GeneralContents = "- stuff in the room -",
+                Accessable = true,
+                ExperiencePoints = 10
+            },
+
+            new DungeonLocation
+            {
+                CommonName = "Shrine",
+                DungeonLocationID = 9,
+                DungeonDate = 468,
+                Description = "The Norlon Corporation Headquarters is located in just outside of Detroit Michigan." +
+                              "Norlon, founded in 1985 as a bio-tech company, is now a 36 billion dollar company " +
+                              "with huge holdings in defense and space research and development.",
+                GeneralContents = "- stuff in the room -",
+                Accessable = true,
+                ExperiencePoints = 10
+            },
+
+            new DungeonLocation
+            {
+                CommonName = "Trophy Room",
+                DungeonLocationID = 10,
+                DungeonDate = 468,
+                Description = "The Norlon Corporation Headquarters is located in just outside of Detroit Michigan." +
+                              "Norlon, founded in 1985 as a bio-tech company, is now a 36 billion dollar company " +
+                              "with huge holdings in defense and space research and development.",
+                GeneralContents = "- stuff in the room -",
+                Accessable = true,
+                ExperiencePoints = 10
+            },
+
+            new DungeonLocation
+            {
+                CommonName = "Throne Room",
+                DungeonLocationID = 11,
+                DungeonDate = 468,
                 Description = "An abandoned space ship looms just out of plaent Velisoid." +
                               "The ship hull is riddled with projectile sized holes and one of " +
                               "the four rear engines is missing. Something terrible happened here.",
@@ -80,7 +156,7 @@ namespace TB_QuestGame_DungonDweller
                                   "Before you have time to hale them, they open fire on your ship. You flee " +
                                   "as fast as you can, but your ship takes some minor damage.",
                 Accessable = true,
-                ExperiencePoints = -10
+                ExperiencePoints = 10
             }
         };
     }

@@ -175,7 +175,7 @@ namespace TB_QuestGame_DungonDweller
 
             _gameAdventurer.Name = adventurer.Name;
             _gameAdventurer.Age = adventurer.Age;
-            _gameAdventurer.Race = adventurer.Race;
+            _gameAdventurer.Class = adventurer.Class;
             _gameAdventurer.IQ = adventurer.IQ;
             _gameAdventurer.HealthPotions = adventurer.HealthPotions;
             _gameAdventurer.DungeonLocationID = 1;

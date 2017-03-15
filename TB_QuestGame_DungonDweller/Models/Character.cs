@@ -13,13 +13,12 @@ namespace TB_QuestGame_DungonDweller
     {
         #region ENUMERABLES
 
-        public enum RaceType
+        public enum ClassType
         {
             None,
-            Human,
-            Orc,
-            Elf,
-            Dwarf
+            Warrior,
+            Ranger,
+            Mage
         }
 
         #endregion
@@ -28,7 +27,7 @@ namespace TB_QuestGame_DungonDweller
 
         protected string _name;
         protected int _age;
-        protected RaceType _race;
+        protected ClassType _class;
         protected int _dungeonLocationID;
 
         #endregion
@@ -47,10 +46,10 @@ namespace TB_QuestGame_DungonDweller
             set { _age = value; }
         }
 
-        public RaceType Race
+        public ClassType Class
         {
-            get { return _race; }
-            set { _race = value; }
+            get { return _class; }
+            set { _class = value; }
         }
 
         public int DungeonLocationID
@@ -68,11 +67,11 @@ namespace TB_QuestGame_DungonDweller
 
         }
 
-        public Character(string name, int age, RaceType race, int dungeonLocationID)
+        public Character(string name, int age, ClassType @class, int dungeonLocationID)
         {
             _name = name;
             _age = age;
-            _race = race;
+            _class = @class;
             _dungeonLocationID = dungeonLocationID;
         }
 

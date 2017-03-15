@@ -81,27 +81,27 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText; ;
         }
 
-        public static string InitializeQuestGetAdventurerRace(Adventurer gameTraveler)
+        public static string InitializeQuestGetAdventurerClass(Adventurer gameTraveler)
         {
             string messageBoxText =
-                $"{gameTraveler.Name}, it will be important for us to know your race on this quest.\n" +
+                $"{gameTraveler.Name}, it will be important for us to know your class on this quest.\n" +
                 " \n" +
-                "Enter your race below.\n" +
+                "Enter your class below.\n" +
                 " \n" +
-                "Please use the race classifications below." +
+                "Please use the class specifications below." +
                 " \n";
 
-            string raceList = null;
+            string classList = null;
 
-            foreach (Character.RaceType race in Enum.GetValues(typeof(Character.RaceType)))
+            foreach (Character.ClassType @class in Enum.GetValues(typeof(Character.ClassType)))
             {
-                if (race != Character.RaceType.None)
+                if (@class != Character.ClassType.None)
                 {
-                    raceList += $"\t{race}\n";
+                    classList += $"\t{@class}\n";
                 }
             }
 
-            messageBoxText += raceList;
+            messageBoxText += classList;
 
             return messageBoxText;
         }
@@ -138,7 +138,7 @@ namespace TB_QuestGame_DungonDweller
                 " \n" +
                 $"\tAdventurer Name: {gameAdventurer.Name}\n" +
                 $"\tAdventurer Age: {gameAdventurer.Age}\n" +
-                $"\tAdventurer Race: {gameAdventurer.Race}\n" +
+                $"\tAdventurer Class: {gameAdventurer.Class}\n" +
                 $"\tAdventurer IQ: {gameAdventurer.IQ}\n" +
                 $"\tAdventurer Health Potions: {gameAdventurer.HealthPotions}\n" +
                 " \n" +
@@ -158,7 +158,7 @@ namespace TB_QuestGame_DungonDweller
             string messageBoxText =
                 $"\tAdventurer Name: {gameAdventurer.Name}\n" +
                 $"\tAdventurer Age: {gameAdventurer.Age}\n" +
-                $"\tAdventurer Race: {gameAdventurer.Race}\n" +
+                $"\tAdventurer Class: {gameAdventurer.Class}\n" +
                 $"\tAdventurer IQ: {gameAdventurer.IQ}\n" +
                 $"\tAdventurer Health Potions: {gameAdventurer.HealthPotions}\n" +
                 " \n";
@@ -174,9 +174,9 @@ namespace TB_QuestGame_DungonDweller
                 "Your current Adventurers Name and Age appear below:\n" +
                 $"\tAdventurer Name: {gameAdventurer.Name}\n" +
                 $"\tAdventurer Age: {gameAdventurer.Age}\n" +
-                $"\tAdventurer Race: {gameAdventurer.Race}\n" +
+                $"\tAdventurer Class: {gameAdventurer.Class}\n" +
                 " \n" +
-                "Please enter a new name, age, and race." +
+                "Please enter a new name, age, and class." +
                 " \n";
 
             return messageBoxText;

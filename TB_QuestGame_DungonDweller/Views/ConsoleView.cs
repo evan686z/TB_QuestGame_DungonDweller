@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace TB_QuestGame_DungonDweller
@@ -167,14 +168,16 @@ namespace TB_QuestGame_DungonDweller
         /// get a character race value from the user
         /// </summary>
         /// <returns>character race value</returns>
-        public Character.RaceType GetRace()
+        public Character.ClassType GetClass()
         {
-            Character.RaceType raceType;
-            Enum.TryParse<Character.RaceType>(Console.ReadLine(), out raceType);
+            string getClass = Console.ReadLine();
 
-            return raceType;
+            Character.ClassType classType;
+            Enum.TryParse<Character.ClassType>(getClass = Regex.Replace(getClass, @"(^\w)|(\s\w)", m => m.Value.ToUpper()), out classType);
+
+            return classType;
         }
-
+        
         /// <summary>
         /// get a random IQ for the user
         /// </summary>
@@ -466,7 +469,7 @@ namespace TB_QuestGame_DungonDweller
             //
             DisplayGamePlayScreen("Quest Initialization - Name", Text.InitializeQuestGetAdventurerName(), ActionMenu.QuestIntro, "");
             DisplayInputBoxPrompt("Enter your name: ");
-            adventurer.Name = GetString();
+            adventurer.Name = Regex.Replace(GetString(), @"(^\w)|(\s\w)", m => m.Value.ToUpper());
 
             //
             // get adventurer's age
@@ -480,9 +483,9 @@ namespace TB_QuestGame_DungonDweller
             //
             // get adventurer's race
             //
-            DisplayGamePlayScreen("Quest Initialization - Race", Text.InitializeQuestGetAdventurerRace(adventurer), ActionMenu.QuestIntro, "");
-            DisplayInputBoxPrompt($"Enter your race {adventurer.Name}: ");
-            adventurer.Race = GetRace();
+            DisplayGamePlayScreen("Quest Initialization - Class", Text.InitializeQuestGetAdventurerClass(adventurer), ActionMenu.QuestIntro, "");
+            DisplayInputBoxPrompt($"Enter your class {adventurer.Name}: ");
+            adventurer.Class = GetClass();
 
             //
             // get adventurer's IQ
@@ -528,8 +531,7 @@ namespace TB_QuestGame_DungonDweller
             // Update Name
             DisplayGamePlayScreen("Edit Adventurer Information - Name", Text.AdventurerEditInfo(_gameAdventurer), ActionMenu.MainMenu, "");
             DisplayInputBoxPrompt("Enter name: ");
-
-            updateAdventurer = GetString();
+            updateAdventurer = Regex.Replace(GetString(), @"(^\w)|(\s\w)", m => m.Value.ToUpper());
             if (updateAdventurer != "")
             {
                 adventurer.Name = updateAdventurer;
@@ -543,11 +545,11 @@ namespace TB_QuestGame_DungonDweller
             GetInteger($"Enter your age {adventurer.Name}: ", 0, 1000000, out adventurerAge);
             adventurer.Age = adventurerAge;
 
-            // Update Race
-            DisplayGamePlayScreen("Edit Adventurer Information - Race", Text.InitializeQuestGetAdventurerRace(adventurer), ActionMenu.QuestIntro, "");
+            // Update Class
+            DisplayGamePlayScreen("Edit Adventurer Information - Class", Text.InitializeQuestGetAdventurerClass(adventurer), ActionMenu.QuestIntro, "");
             DisplayInputBoxPrompt($"Enter your race {adventurer.Name}: ");
 
-            adventurer.Race = GetRace();
+            adventurer.Class = GetClass();
 
             // Display new info
             DisplayGamePlayScreen("Adventurer Information", Text.AdventurerInfo(adventurer), ActionMenu.MainMenu, "");

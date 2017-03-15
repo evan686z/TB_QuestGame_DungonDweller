@@ -133,21 +133,8 @@ namespace TB_QuestGame_DungonDweller
 
             new DungeonLocation
             {
-                CommonName = "Trophy Room",
-                DungeonLocationID = 10,
-                DungeonDate = 468,
-                Description = "The Norlon Corporation Headquarters is located in just outside of Detroit Michigan." +
-                              "Norlon, founded in 1985 as a bio-tech company, is now a 36 billion dollar company " +
-                              "with huge holdings in defense and space research and development.",
-                GeneralContents = "- stuff in the room -",
-                Accessable = true,
-                ExperiencePoints = 10
-            },
-
-            new DungeonLocation
-            {
                 CommonName = "Throne Room",
-                DungeonLocationID = 11,
+                DungeonLocationID = 10,
                 DungeonDate = 468,
                 Description = "An abandoned space ship looms just out of plaent Velisoid." +
                               "The ship hull is riddled with projectile sized holes and one of " +

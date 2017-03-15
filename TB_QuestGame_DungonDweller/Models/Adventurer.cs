@@ -70,7 +70,7 @@ namespace TB_QuestGame_DungonDweller
             _dungeonLocationsVisited = new List<int>();
         }
 
-        public Adventurer(string name, int age, RaceType race, int iq, int healthPotions, int dungeonLocationID) : base(name, age, race, dungeonLocationID)
+        public Adventurer(string name, int age, ClassType race, int iq, int healthPotions, int dungeonLocationID) : base(name, age, race, dungeonLocationID)
         {
             _dungeonLocationsVisited = new List<int>();
         }

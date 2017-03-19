@@ -29,6 +29,7 @@ namespace TB_QuestGame_DungonDweller
         //
         Adventurer _gameAdventurer;
         Dungeon _gameDungeon;
+        DungeonLocation _gameDungeonLocation;
 
         ViewStatus _viewStatus;
 
@@ -621,6 +622,14 @@ namespace TB_QuestGame_DungonDweller
             DisplayGamePlayScreen("Dungeon Locations Visited", Text.VisitedLocations(visitedSpaceTimeLocations), ActionMenu.MainMenu, "");
         }
 
+        public void UpdateDungeonLocationAccessibility()
+        {
+            if (_gameAdventurer.DungeonLocationsVisited.Contains(1))
+            {
+                // select next room and set its accessablity to true...somehow
+                _gameDungeonLocation.Accessable = true;
+            }
+        }
         #endregion
 
         #endregion

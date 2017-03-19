@@ -17,12 +17,12 @@ namespace TB_QuestGame_DungonDweller
         // list of all space-time locations
         //
 
-        private List<DungeonLocation> _spaceTimeLocations;
+        private List<DungeonLocation> _dungeonLocations;
 
         public List<DungeonLocation> SpaceTimeLocations
         {
-            get { return _spaceTimeLocations; }
-            set { _spaceTimeLocations = value; }
+            get { return _dungeonLocations; }
+            set { _dungeonLocations = value; }
         }
 
         #endregion
@@ -37,7 +37,7 @@ namespace TB_QuestGame_DungonDweller
             //
             // add all of the universe objects to the game
             // 
-            IntializeUniverse();
+            IntializeDungeon();
         }
 
         #endregion
@@ -47,9 +47,9 @@ namespace TB_QuestGame_DungonDweller
         /// <summary>
         /// initialize the universe with all of the space-time locations
         /// </summary>
-        private void IntializeUniverse()
+        private void IntializeDungeon()
         {
-            _spaceTimeLocations = DungeonObjects.DungeonLocations;
+            _dungeonLocations = DungeonObjects.DungeonLocations;
         }
 
         #endregion
@@ -68,7 +68,7 @@ namespace TB_QuestGame_DungonDweller
             //
             // create list of space-time locations ids
             //
-            foreach (DungeonLocation stl in _spaceTimeLocations)
+            foreach (DungeonLocation stl in _dungeonLocations)
             {
                 spaceTimeLocationIds.Add(stl.DungeonLocationID);
             }
@@ -139,7 +139,7 @@ namespace TB_QuestGame_DungonDweller
             //
             // run through the space-time location list and grab the correct one
             //
-            foreach (DungeonLocation location in _spaceTimeLocations)
+            foreach (DungeonLocation location in _dungeonLocations)
             {
                 if (location.DungeonLocationID == Id)
                 {

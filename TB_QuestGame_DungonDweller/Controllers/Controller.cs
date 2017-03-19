@@ -199,6 +199,8 @@ namespace TB_QuestGame_DungonDweller
                 //
                 _gameAdventurer.ExperiencePoints += _dungeonLocation.ExperiencePoints;
             }
+
+            //_gameConsoleView.UpdateDungeonLocationAccessibility();
         }
 
         #endregion

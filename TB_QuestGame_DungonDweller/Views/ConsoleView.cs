@@ -138,20 +138,32 @@ namespace TB_QuestGame_DungonDweller
             bool validResponse = false;
             integerChoice = 0;
 
+            //
+            // validate on range if either minimumValue or maximumValue are not 0
+            //
+            bool validateRange = (minimumValue != 0 || maximumValue != 0);
+
             DisplayInputBoxPrompt(prompt);
             while (!validResponse)
             {
                 if (int.TryParse(Console.ReadLine(), out integerChoice))
                 {
-                    if (integerChoice >= minimumValue && integerChoice <= maximumValue)
+                    if (validateRange)
                     {
-                        validResponse = true;
+                        if (integerChoice >= minimumValue && integerChoice <= maximumValue)
+                        {
+                            validResponse = true;
+                        }
+                        else
+                        {
+                            ClearInputBox();
+                            DisplayInputErrorMessage($"You must enter an integer value between {minimumValue} and {maximumValue}. Please try again.");
+                            DisplayInputBoxPrompt(prompt);
+                        }
                     }
                     else
                     {
-                        ClearInputBox();
-                        DisplayInputErrorMessage($"You must enter an integer value between {minimumValue} and {maximumValue}. Please try again.");
-                        DisplayInputBoxPrompt(prompt);
+                        validResponse = true;
                     }
                 }
                 else
@@ -161,6 +173,8 @@ namespace TB_QuestGame_DungonDweller
                     DisplayInputBoxPrompt(prompt);
                 }
             }
+
+            Console.CursorVisible = false;
 
             return true;
         }
@@ -178,7 +192,7 @@ namespace TB_QuestGame_DungonDweller
 
             return classType;
         }
-        
+
         /// <summary>
         /// get a random IQ for the user
         /// </summary>
@@ -629,6 +643,11 @@ namespace TB_QuestGame_DungonDweller
                 // select next room and set its accessablity to true...somehow
                 _gameDungeonLocation.Accessable = true;
             }
+        }
+
+        public void DisplayListOfAllGameObjects()
+        {
+            DisplayGamePlayScreen("List: Game Objects", Text.ListAllGameObjects(_gameDungeon.GameObjects), ActionMenu.MainMenu, "");
         }
         #endregion
 

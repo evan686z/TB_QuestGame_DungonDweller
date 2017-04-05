@@ -42,7 +42,8 @@ namespace TB_QuestGame_DungonDweller
                     { '3', AdventurerAction.Travel },
                     { '4', AdventurerAction.AdventurerLocationsVisited },
                     { '5', AdventurerAction.ListDungeonLocations },
-                    { '6', AdventurerAction.EditAdventurerInfo },
+                    { '6', AdventurerAction.ListGameObjects },
+                    { '7', AdventurerAction.EditAdventurerInfo },
                     { '0', AdventurerAction.Exit }
                 }
         };

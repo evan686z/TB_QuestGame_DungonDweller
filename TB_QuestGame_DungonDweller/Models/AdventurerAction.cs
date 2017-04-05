@@ -26,6 +26,7 @@ namespace TB_QuestGame_DungonDweller
         AdventurerTreasure,
         AdventurerLocationsVisited,
         ListDungeonLocations,
+        ListGameObjects,
         ListItems,
         ListTreasures,
         Exit

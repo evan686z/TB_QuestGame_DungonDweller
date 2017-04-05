@@ -147,6 +147,10 @@ namespace TB_QuestGame_DungonDweller
                         _gameConsoleView.DisplayLocationsVisited();
                         break;
 
+                    case AdventurerAction.ListGameObjects:
+                        _gameConsoleView.DisplayListOfAllGameObjects();
+                        break;
+
                     case AdventurerAction.EditAdventurerInfo:
                         _gameConsoleView.DisplayEditAdventurerInfo(_gameAdventurer);
                         break;

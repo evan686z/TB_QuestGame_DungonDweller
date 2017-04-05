@@ -44,7 +44,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assests\ActionMenu.cs" />
-    <Compile Include="Assests\DungeonObjects.cs" />
+    <Compile Include="Assests\DungeonObjectsDungeonLocations.cs" />
+    <Compile Include="Assests\DungeonObjectsGameObjects.cs" />
     <Compile Include="Assests\Text.cs" />
     <Compile Include="ConsoleUtilities\ConsoleLayout.cs" />
     <Compile Include="ConsoleUtilities\ConsoleTheme.cs" />
@@ -53,9 +54,12 @@
     <Compile Include="Controllers\Controller.cs" />
     <Compile Include="Models\Adventurer.cs" />
     <Compile Include="Models\AdventurerAction.cs" />
+    <Compile Include="Models\AdventurerObject.cs" />
     <Compile Include="Models\Character.cs" />
     <Compile Include="Models\Dungeon.cs" />
     <Compile Include="Models\DungeonLocation.cs" />
+    <Compile Include="Models\Enums\AdventurerObjectType.cs" />
+    <Compile Include="Models\GameObject.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

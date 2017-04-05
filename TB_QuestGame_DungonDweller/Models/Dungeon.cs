@@ -18,12 +18,20 @@ namespace TB_QuestGame_DungonDweller
         //
 
         private List<DungeonLocation> _dungeonLocations;
+        private List<GameObject> _gameObjects;
 
         public List<DungeonLocation> SpaceTimeLocations
         {
             get { return _dungeonLocations; }
             set { _dungeonLocations = value; }
         }
+
+        public List<GameObject> GameObjects
+        {
+            get { return _gameObjects; }
+            set { _gameObjects = value; }
+        }
+
 
         #endregion
 
@@ -50,6 +58,7 @@ namespace TB_QuestGame_DungonDweller
         private void IntializeDungeon()
         {
             _dungeonLocations = DungeonObjects.DungeonLocations;
+            _gameObjects = DungeonObjects.GameObject;
         }
 
         #endregion
@@ -158,6 +167,80 @@ namespace TB_QuestGame_DungonDweller
             }
 
             return spaceTimeLocation;
+        }
+
+        public bool IsValidGameObjectByLocationId(int gameObjectId, int currentDungeonLocation)
+        {
+            List<int> gameObjectIds = new List<int>();
+
+            //
+            // create a list of game object ids in current dungeon location
+            //
+            foreach (GameObject gameObject in _gameObjects)
+            {
+                if (gameObject.DungeonLocationId == currentDungeonLocation)
+                {
+                    gameObjectIds.Add(gameObject.Id);
+                }
+            }
+
+            //
+            // determine if the game object id is a valid id and return the result
+            //
+            if (gameObjectIds.Contains(gameObjectId))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public GameObject GetGameObjectById(int Id)
+        {
+            GameObject gameObjectToReturn = null;
+
+            //
+            // run through the game object list and grab the correct one
+            //
+            foreach (GameObject gameObject in _gameObjects)
+            {
+                if (gameObject.Id == Id)
+                {
+                    gameObjectToReturn = gameObject;
+                }
+            }
+
+            //
+            // the specified ID was not found in the dungeon
+            // throw and exception
+            //
+            if (gameObjectToReturn == null)
+            {
+                string feedbackMessage = $"The Game Object ID {Id} does not exist in the current dungeon.";
+                throw new ArgumentException(Id.ToString(), feedbackMessage);
+            }
+
+            return gameObjectToReturn;
+        }
+
+        public List<GameObject> GetGameObjectsByDungeonLocationId(int dungeonLocationId)
+        {
+            List<GameObject> gameObjects = new List<GameObject>();
+
+            //
+            // run through the game object list and grab all that are in the current dungeon location
+            //
+            foreach (GameObject gameObject in _gameObjects)
+            {
+                if (gameObject.DungeonLocationId == dungeonLocationId)
+                {
+                    gameObjects.Add(gameObject);
+                }
+            }
+
+            return gameObjects;
         }
 
         #endregion

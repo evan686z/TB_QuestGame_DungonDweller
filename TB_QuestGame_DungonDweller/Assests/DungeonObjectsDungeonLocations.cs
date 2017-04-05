@@ -9,7 +9,7 @@ namespace TB_QuestGame_DungonDweller
     /// <summary>
     /// static class to hold all objects in the game universe; locations, game objects, npc's
     /// </summary>
-    public static class DungeonObjects
+    public static partial class DungeonObjects
     {
         public static List<DungeonLocation> DungeonLocations = new List<DungeonLocation>()
         {

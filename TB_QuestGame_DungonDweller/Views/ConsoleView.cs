@@ -649,6 +649,50 @@ namespace TB_QuestGame_DungonDweller
         {
             DisplayGamePlayScreen("List: Game Objects", Text.ListAllGameObjects(_gameDungeon.GameObjects), ActionMenu.MainMenu, "");
         }
+
+        public int DisplayGetGameObjectToLookAt()
+        {
+            int gameObjectId = 0;
+            bool validGameObjectId = false;
+
+            //
+            // get a list of game objects in the current dungeon location
+            //
+            List<GameObject> gameObjectInDungeonLocation = _gameDungeon.GetGameObjectsByDungeonLocationId(_gameAdventurer.DungeonLocationID);
+
+            if (gameObjectInDungeonLocation.Count > 0)
+            {
+                DisplayGamePlayScreen("Look at an Object", Text.GameObjectsChooseList(gameObjectInDungeonLocation), ActionMenu.MainMenu, "");
+
+                while (!validGameObjectId)
+                {
+                    //
+                    // get an integer from the player
+                    //
+                    GetInteger($"Enter the ID number of the object you wish to look at: ", 0, 0, out gameObjectId);
+
+                    //
+                    // validate integer as a valid game object ID and in current location
+                    //
+                    if (_gameDungeon.IsValidGameObjectByLocationId(gameObjectId, _gameAdventurer.DungeonLocationID))
+                    {
+                        validGameObjectId = true;
+                    }
+                    else
+                    {
+                        ClearInputBox();
+                        DisplayInputErrorMessage("It appears you entered an invalid game object ID. Please try again.");
+                    }
+                }
+            }
+            else
+            {
+                DisplayGamePlayScreen("Look at an Object", "It appears there are no game objects here.", ActionMenu.MainMenu, "");
+            }
+
+            return gameObjectId;
+        }
+
         #endregion
 
         #endregion

@@ -17,7 +17,7 @@ namespace TB_QuestGame_DungonDweller
         private Adventurer _gameAdventurer;
         private Dungeon _gameDungeon;
         private bool _playingGame;
-        private DungeonLocation _dungeonLocation;
+        private DungeonLocation _currentLocation;
 
         #endregion
 
@@ -92,7 +92,7 @@ namespace TB_QuestGame_DungonDweller
             //
             // prepare game play screen
             //
-            _dungeonLocation = _gameDungeon.GetSpaceTimeLocationById(_gameAdventurer.DungeonLocationID);
+            _currentLocation = _gameDungeon.GetSpaceTimeLocationById(_gameAdventurer.DungeonLocationID);
             _gameConsoleView.DisplayGamePlayScreen("Current Location", Text.CurrrentLocationInfo(), ActionMenu.MainMenu, "");
 
             //
@@ -103,12 +103,19 @@ namespace TB_QuestGame_DungonDweller
                 //
                 // process all flags, events, and stats
                 //
-                //
                 UpdateGameStatus();
 
+                //
                 // get next game action from player
                 //
-                travelerActionChoice = _gameConsoleView.GetActionMenuChoice(ActionMenu.MainMenu);
+                if (ActionMenu.currentMenu == ActionMenu.CurrentMenu.MainMenu)
+                {
+                    travelerActionChoice = _gameConsoleView.GetActionMenuChoice(ActionMenu.MainMenu);
+                }
+                else if (ActionMenu.currentMenu == ActionMenu.CurrentMenu.AdminMenu)
+                {
+                    travelerActionChoice = _gameConsoleView.GetActionMenuChoice(ActionMenu.AdminMenu);
+                }
 
                 //
                 // choose an action based on the player's menu choice
@@ -135,12 +142,12 @@ namespace TB_QuestGame_DungonDweller
                         // get new location choice and update the current location property
                         //                        
                         _gameAdventurer.DungeonLocationID = _gameConsoleView.DisplayGetNextDungeonLocation();
-                        _dungeonLocation = _gameDungeon.GetSpaceTimeLocationById(_gameAdventurer.DungeonLocationID);
+                        _currentLocation = _gameDungeon.GetSpaceTimeLocationById(_gameAdventurer.DungeonLocationID);
 
                         //
                         // set the game play screen to the current location info format
                         //
-                        _gameConsoleView.DisplayGamePlayScreen("Current Location", Text.CurrentLocationInfo(_dungeonLocation), ActionMenu.MainMenu, "");
+                        _gameConsoleView.DisplayGamePlayScreen("Current Location", Text.CurrentLocationInfo(_currentLocation), ActionMenu.MainMenu, "");
                         break;
 
                     case AdventurerAction.AdventurerLocationsVisited:
@@ -157,6 +164,16 @@ namespace TB_QuestGame_DungonDweller
 
                     case AdventurerAction.EditAdventurerInfo:
                         _gameConsoleView.DisplayEditAdventurerInfo(_gameAdventurer);
+                        break;
+
+                    case AdventurerAction.AdminMenu:
+                        ActionMenu.currentMenu = ActionMenu.CurrentMenu.AdminMenu;
+                        _gameConsoleView.DisplayGamePlayScreen("Admin Menu", "Select an operation from the menu.", ActionMenu.AdminMenu, "");
+                        break;
+
+                    case AdventurerAction.ReturnToMainMenu:
+                        ActionMenu.currentMenu = ActionMenu.CurrentMenu.MainMenu;
+                        _gameConsoleView.DisplayGamePlayScreen("Current Location", Text.CurrentLocationInfo(_currentLocation), ActionMenu.MainMenu, "");
                         break;
 
                     case AdventurerAction.Exit:
@@ -195,17 +212,17 @@ namespace TB_QuestGame_DungonDweller
 
         private void UpdateGameStatus()
         {
-            if (!_gameAdventurer.HasVisited(_dungeonLocation.DungeonLocationID))
+            if (!_gameAdventurer.HasVisited(_currentLocation.DungeonLocationID))
             {
                 //
                 // add new location to the list of visited locations if this is a first visit
                 //
-                _gameAdventurer.DungeonLocationsVisited.Add(_dungeonLocation.DungeonLocationID);
+                _gameAdventurer.DungeonLocationsVisited.Add(_currentLocation.DungeonLocationID);
 
                 //
                 // update experience points for visiting locations
                 //
-                _gameAdventurer.ExperiencePoints += _dungeonLocation.ExperiencePoints;
+                _gameAdventurer.ExperiencePoints += _currentLocation.ExperiencePoints;
             }
 
             //_gameConsoleView.UpdateDungeonLocationAccessibility();

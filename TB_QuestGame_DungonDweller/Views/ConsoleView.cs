@@ -544,7 +544,7 @@ namespace TB_QuestGame_DungonDweller
             string updateAdventurer = "";
 
             // Update Name
-            DisplayGamePlayScreen("Edit Adventurer Information - Name", Text.AdventurerEditInfo(_gameAdventurer), ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Edit Adventurer Information - Name", Text.AdventurerEditInfo(_gameAdventurer), ActionMenu.AdminMenu, "");
             DisplayInputBoxPrompt("Enter name: ");
             updateAdventurer = Regex.Replace(GetString(), @"(^\w)|(\s\w)", m => m.Value.ToUpper());
             if (updateAdventurer != "")
@@ -553,7 +553,7 @@ namespace TB_QuestGame_DungonDweller
             }
 
             // Update Age
-            DisplayGamePlayScreen("Edit Adventurer Information - Age", Text.AdventurerEditInfo(_gameAdventurer), ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Edit Adventurer Information - Age", Text.AdventurerEditInfo(_gameAdventurer), ActionMenu.AdminMenu, "");
             DisplayInputBoxPrompt("Enter Age: ");
             int adventurerAge;
 
@@ -561,13 +561,13 @@ namespace TB_QuestGame_DungonDweller
             adventurer.Age = adventurerAge;
 
             // Update Class
-            DisplayGamePlayScreen("Edit Adventurer Information - Class", Text.InitializeQuestGetAdventurerClass(adventurer), ActionMenu.QuestIntro, "");
-            DisplayInputBoxPrompt($"Enter your race {adventurer.Name}: ");
+            DisplayGamePlayScreen("Edit Adventurer Information - Class", Text.InitializeQuestGetAdventurerClass(adventurer), ActionMenu.AdminMenu, "");
+            DisplayInputBoxPrompt($"Enter your class {adventurer.Name}: ");
 
             adventurer.Class = GetClass();
 
             // Display new info
-            DisplayGamePlayScreen("Adventurer Information", Text.AdventurerInfo(adventurer), ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Adventurer Information", Text.AdventurerInfo(adventurer), ActionMenu.AdminMenu, "");
 
             return adventurer;
         }
@@ -575,7 +575,7 @@ namespace TB_QuestGame_DungonDweller
         public void DisplayListOfDungeonLocations()
         {
             DisplayGamePlayScreen("List: Dungeon Locations", Text.ListDungeonLocations(_gameDungeon.SpaceTimeLocations),
-                ActionMenu.MainMenu, "");
+                ActionMenu.AdminMenu, "");
         }
 
         public void DisplayLookAround()
@@ -661,7 +661,7 @@ namespace TB_QuestGame_DungonDweller
 
         public void DisplayListOfAllGameObjects()
         {
-            DisplayGamePlayScreen("List: Game Objects", Text.ListAllGameObjects(_gameDungeon.GameObjects), ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("List: Game Objects", Text.ListAllGameObjects(_gameDungeon.GameObjects), ActionMenu.AdminMenu, "");
         }
 
         public int DisplayGetGameObjectToLookAt()

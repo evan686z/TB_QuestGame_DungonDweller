@@ -29,6 +29,8 @@ namespace TB_QuestGame_DungonDweller
         ListGameObjects,
         ListItems,
         ListTreasures,
+        AdminMenu,
+        ReturnToMainMenu,
         Exit
     }
 }

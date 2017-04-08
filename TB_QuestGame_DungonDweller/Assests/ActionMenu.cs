@@ -11,6 +11,17 @@ namespace TB_QuestGame_DungonDweller
     /// </summary>
     public static class ActionMenu
     {
+        public enum CurrentMenu
+        {
+            QuestInfo,
+            InitializeMission,
+            MainMenu,
+            AdminMenu
+
+        }
+
+        public static CurrentMenu currentMenu = CurrentMenu.MainMenu;
+
         public static Menu QuestIntro = new Menu()
         {
             MenuName = "QuestIntro",
@@ -42,11 +53,25 @@ namespace TB_QuestGame_DungonDweller
                     { '3', AdventurerAction.LookAt },
                     { '4', AdventurerAction.Travel },
                     { '5', AdventurerAction.AdventurerLocationsVisited },
-                    { '6', AdventurerAction.ListDungeonLocations },
-                    { '7', AdventurerAction.ListGameObjects },     
-                    { '8', AdventurerAction.EditAdventurerInfo },
+                    //{ '6', AdventurerAction.ListDungeonLocations },
+                    //{ '7', AdventurerAction.ListGameObjects },     
+                    //{ '6', AdventurerAction.EditAdventurerInfo },
+                    { '6', AdventurerAction.AdminMenu},
                     { '0', AdventurerAction.Exit }
                 }
+        };
+
+        public static Menu AdminMenu = new Menu()
+        {
+            MenuName = "AdminMenu",
+            MenuTitle = "Admin Menu",
+            MenuChoices = new Dictionary<char, AdventurerAction>()
+            {
+                { '1', AdventurerAction.ListDungeonLocations },
+                { '2', AdventurerAction.ListGameObjects },
+                { '3', AdventurerAction.EditAdventurerInfo },
+                { '4', AdventurerAction.ReturnToMainMenu }
+            }
         };
     }
 }

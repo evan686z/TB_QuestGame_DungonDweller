@@ -367,6 +367,38 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
+        public static string LookAt(GameObject gameObject)
+        {
+            string messageBoxText = "";
+
+            messageBoxText =
+                $"{gameObject.Name}\n" +
+                " \n" +
+                gameObject.Description + " \n" +
+                " \n";
+            if (gameObject is AdventurerObject)
+            {
+                AdventurerObject adventurerObject = gameObject as AdventurerObject;
+
+                messageBoxText += $"The {adventurerObject.Name} has a value of {adventurerObject.Value} and ";
+
+                if (adventurerObject.CanInventory)
+                {
+                    messageBoxText += "may be added to your inventory.";
+                }
+                else
+                {
+                    messageBoxText += "may not be added to your inventory.";
+                }
+            }
+            else
+            {
+                messageBoxText += $"The {gameObject.Name} may not be added to your inventory.";
+            }
+
+            return messageBoxText;
+        }
+
         #endregion
 
         public static List<string> StatusBox(Adventurer adventurer)

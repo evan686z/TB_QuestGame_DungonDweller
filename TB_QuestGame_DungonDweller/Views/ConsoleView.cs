@@ -580,8 +580,22 @@ namespace TB_QuestGame_DungonDweller
 
         public void DisplayLookAround()
         {
-            DungeonLocation currentSpaceTimeLocation = _gameDungeon.GetSpaceTimeLocationById(_gameAdventurer.DungeonLocationID);
-            DisplayGamePlayScreen("Current Location", Text.LookAround(currentSpaceTimeLocation), ActionMenu.MainMenu, "");
+            //
+            // get current dungeon location 
+            //
+            DungeonLocation currentDungeonLocation = _gameDungeon.GetSpaceTimeLocationById(_gameAdventurer.DungeonLocationID);
+
+            //
+            // get list of game objects in the current dungeon location
+            //
+            List<GameObject> gameObjectsInCurrentDungeonLocation = _gameDungeon.GetGameObjectsByDungeonLocationId(_gameAdventurer.DungeonLocationID);
+
+            string messageBoxText = Text.LookAround(currentDungeonLocation) + Environment.NewLine + Environment.NewLine;
+            messageBoxText += Text.GameObjectsChooseList(gameObjectsInCurrentDungeonLocation);
+
+            DisplayGamePlayScreen("Current Location", messageBoxText, ActionMenu.MainMenu, "");
+
+            //DisplayGamePlayScreen("Current Location", Text.LookAround(currentDungeonLocation), ActionMenu.MainMenu, "");
         }
 
         public int DisplayGetNextDungeonLocation()
@@ -691,6 +705,11 @@ namespace TB_QuestGame_DungonDweller
             }
 
             return gameObjectId;
+        }
+
+        public void DisplayGameObjectInfo(GameObject gameObject)
+        {
+            DisplayGamePlayScreen("Current Location", Text.LookAt(gameObject), ActionMenu.MainMenu, "");
         }
 
         #endregion

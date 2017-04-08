@@ -151,6 +151,10 @@ namespace TB_QuestGame_DungonDweller
                         _gameConsoleView.DisplayListOfAllGameObjects();
                         break;
 
+                    case AdventurerAction.LookAt:
+                        LookAtAction();
+                        break;
+
                     case AdventurerAction.EditAdventurerInfo:
                         _gameConsoleView.DisplayEditAdventurerInfo(_gameAdventurer);
                         break;
@@ -205,6 +209,30 @@ namespace TB_QuestGame_DungonDweller
             }
 
             //_gameConsoleView.UpdateDungeonLocationAccessibility();
+        }
+
+        private void LookAtAction()
+        {
+            //
+            // display a list of adventurer objects in a dungeon location and get a player choice
+            //
+            int gameObjectToLookAtId = _gameConsoleView.DisplayGetGameObjectToLookAt();
+
+            //
+            // display game object info
+            //
+            if (gameObjectToLookAtId != 0)
+            {
+                //
+                // get the ame object from universe
+                //
+                GameObject gameObject = _gameDungeon.GetGameObjectById(gameObjectToLookAtId);
+
+                //
+                // display information for the object chosen
+                //
+                _gameConsoleView.DisplayGameObjectInfo(gameObject);
+            }
         }
 
         #endregion

@@ -51,12 +51,15 @@ namespace TB_QuestGame_DungonDweller
                     { '1', AdventurerAction.AdventurerInfo },     
                     { '2', AdventurerAction.LookAround },
                     { '3', AdventurerAction.LookAt },
-                    { '4', AdventurerAction.Travel },
-                    { '5', AdventurerAction.AdventurerLocationsVisited },
+                    { '4', AdventurerAction.PickUp },
+                    { '5', AdventurerAction.PutDown },
+                    { '6', AdventurerAction.Inventory },
+                    { '7', AdventurerAction.Travel },
+                    { '8', AdventurerAction.AdventurerLocationsVisited },
                     //{ '6', AdventurerAction.ListDungeonLocations },
                     //{ '7', AdventurerAction.ListGameObjects },     
                     //{ '6', AdventurerAction.EditAdventurerInfo },
-                    { '6', AdventurerAction.AdminMenu},
+                    { '9', AdventurerAction.AdminMenu},
                     { '0', AdventurerAction.Exit }
                 }
         };

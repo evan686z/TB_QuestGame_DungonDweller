@@ -55,6 +55,12 @@ namespace TB_QuestGame_DungonDweller
             _gameConsoleView = new ConsoleView(_gameAdventurer, _gameDungeon);
             _playingGame = true;
 
+            //
+            // add initial items to the adventurer's inventory
+            //
+            _gameAdventurer.Inventory.Add(_gameDungeon.GetGameObjectById(5) as AdventurerObject);
+            _gameAdventurer.Inventory.Add(_gameDungeon.GetGameObjectById(6) as AdventurerObject);
+
             Console.CursorVisible = false;
         }
 
@@ -160,6 +166,10 @@ namespace TB_QuestGame_DungonDweller
 
                     case AdventurerAction.LookAt:
                         LookAtAction();
+                        break;
+
+                    case AdventurerAction.Inventory:
+                        _gameConsoleView.DisplayInventory();
                         break;
 
                     case AdventurerAction.EditAdventurerInfo:

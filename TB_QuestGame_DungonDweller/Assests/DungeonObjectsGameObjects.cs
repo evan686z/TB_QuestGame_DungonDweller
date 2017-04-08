@@ -19,7 +19,7 @@ namespace TB_QuestGame_DungonDweller
                 Type = AdventurerObjectType.Treasure,
                 Value = 45,
                 CanInventory = true,
-                IsConsumable = true,
+                IsConsumable = false,
                 IsVisible = true
             },
 
@@ -32,7 +32,7 @@ namespace TB_QuestGame_DungonDweller
                 Type = AdventurerObjectType.Information,
                 Value = 45,
                 CanInventory = true,
-                IsConsumable = true,
+                IsConsumable = false,
                 IsVisible = true
             },
 
@@ -45,7 +45,7 @@ namespace TB_QuestGame_DungonDweller
                 Type = AdventurerObjectType.Weapon,
                 Value = 45,
                 CanInventory = true,
-                IsConsumable = true,
+                IsConsumable = false,
                 IsVisible = true
             },
 
@@ -61,6 +61,32 @@ namespace TB_QuestGame_DungonDweller
                 IsConsumable = true,
                 IsVisible = true
             },
+
+            new AdventurerObject
+            {
+                Id = 5,
+                Name = "Old Map of dungeon",
+                DungeonLocationId = 0,
+                Description = "A worn looking map describing the layout of the dungeon given to you by the King.",
+                Type = AdventurerObjectType.Information,
+                Value = 45,
+                CanInventory = true,
+                IsConsumable = false,
+                IsVisible = true
+            },
+
+            new AdventurerObject
+            {
+                Id = 6,
+                Name = "Lucky Rabbit's Foot",
+                DungeonLocationId = 0,
+                Description = "Your lucky rabbit's foot. You never leave home without it!",
+                Type = AdventurerObjectType.Treasure,
+                Value = 45,
+                CanInventory = true,
+                IsConsumable = false,
+                IsVisible = true
+            }
 
         };
     }

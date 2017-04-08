@@ -399,6 +399,41 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
+        public static string CurrentInventory(IEnumerable<AdventurerObject> inventory)
+        {
+            string messageBoxText = "";
+
+            //
+            // display table header
+            //
+            messageBoxText =
+                "ID".PadRight(10) +
+                "Name".PadRight(30) +
+                "Type".PadRight(10) +
+                "\n" +
+                "---".PadRight(10) +
+                "-------------------------".PadRight(30) +
+                "--------------------".PadRight(10) +
+                "\n";
+
+            //
+            // display all adventurer objects in rows
+            //
+            string inventoryObjectRows = null;
+            foreach (AdventurerObject inventoryObject in inventory)
+            {
+                inventoryObjectRows +=
+                    $"{inventoryObject.Id}".PadRight(10) +
+                    $"{inventoryObject.Name}".PadRight(30) +
+                    $"{inventoryObject.Type}".PadRight(10) +
+                    Environment.NewLine;
+            }
+
+            messageBoxText += inventoryObjectRows;
+
+            return messageBoxText;
+        }
+
         #endregion
 
         public static List<string> StatusBox(Adventurer adventurer)

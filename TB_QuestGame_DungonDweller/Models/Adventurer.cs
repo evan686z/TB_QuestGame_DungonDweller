@@ -24,6 +24,7 @@ namespace TB_QuestGame_DungonDweller
         private int _health;
         private int _lives;
         private List<int> _dungeonLocationsVisited;
+        private List<AdventurerObject> _inventory;
 
         #endregion
 
@@ -61,6 +62,12 @@ namespace TB_QuestGame_DungonDweller
             get { return _dungeonLocationsVisited; }
             set { _dungeonLocationsVisited = value; }
         }
+
+        public List<AdventurerObject> Inventory
+        {
+            get { return _inventory; }
+            set { _inventory = value; }
+        }
         #endregion
 
         #region CONSTRUCTORS
@@ -68,11 +75,13 @@ namespace TB_QuestGame_DungonDweller
         public Adventurer()
         {
             _dungeonLocationsVisited = new List<int>();
+            _inventory = new List<AdventurerObject>();
         }
 
         public Adventurer(string name, int age, ClassType race, int iq, int healthPotions, int dungeonLocationID) : base(name, age, race, dungeonLocationID)
         {
             _dungeonLocationsVisited = new List<int>();
+            _inventory = new List<AdventurerObject>();
         }
 
         #endregion

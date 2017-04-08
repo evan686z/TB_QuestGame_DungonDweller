@@ -712,6 +712,11 @@ namespace TB_QuestGame_DungonDweller
             DisplayGamePlayScreen("Current Location", Text.LookAt(gameObject), ActionMenu.MainMenu, "");
         }
 
+        public void DisplayInventory()
+        {
+            DisplayGamePlayScreen("Current Inventory", Text.CurrentInventory(_gameAdventurer.Inventory), ActionMenu.MainMenu, "");
+        }
+
         #endregion
 
         #endregion

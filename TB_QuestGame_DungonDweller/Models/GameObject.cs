@@ -12,5 +12,6 @@ namespace TB_QuestGame_DungonDweller
         public abstract string Name { get; set; }
         public abstract string Description { get; set; }
         public abstract int DungeonLocationId { get; set; }
+        public abstract int ExperiencePoints { get; set; }
     }
 }

@@ -18,6 +18,7 @@ namespace TB_QuestGame_DungonDweller
         private Dungeon _gameDungeon;
         private bool _playingGame;
         private DungeonLocation _currentLocation;
+        private GameObject _gameDungeonObjects;
 
         #endregion
 
@@ -241,7 +242,18 @@ namespace TB_QuestGame_DungonDweller
                 // update experience points for visiting locations
                 //
                 _gameAdventurer.ExperiencePoints += _currentLocation.ExperiencePoints;
+
+                //
+                // update experience points for adding items to inventory
+                //
+                foreach (GameObject gameObject in _gameAdventurer.Inventory)
+                {
+                    _gameAdventurer.ExperiencePoints += gameObject.ExperiencePoints;
+                }
+
             }
+
+
 
             //_gameConsoleView.UpdateDungeonLocationAccessibility();
         }

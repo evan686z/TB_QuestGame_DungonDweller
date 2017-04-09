@@ -12,6 +12,7 @@ namespace TB_QuestGame_DungonDweller
         public override string Name { get; set; }
         public override string Description { get; set; }
         public override int DungeonLocationId { get; set; }
+        public override int ExperiencePoints { get; set; }
 
         public AdventurerObjectType Type { get; set; }
         public bool CanInventory { get; set; }

@@ -94,9 +94,33 @@ namespace TB_QuestGame_DungonDweller
                 return false;
             }
         }
+        public bool IsValidAdventurerObjectByLocationId(int adventurerObjectId, int currentDungeonLocation)
+        {
+            List<int> adventurerObjectIds = new List<int>();
 
+            //
+            // create a list of adventurer object ids in current dungeon location
+            //
+            foreach (GameObject gameObject in _gameObjects)
+            {
+                if (gameObject.DungeonLocationId == currentDungeonLocation && gameObject is AdventurerObject)
+                {
+                    adventurerObjectIds.Add(gameObject.Id);
+                }
+            }
 
-
+            //
+            // determine if the game object id is a valid id and return the result
+            //
+            if (adventurerObjectIds.Contains(adventurerObjectId))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         /// <summary>
         /// determine if a location is accessible to the player
@@ -241,6 +265,24 @@ namespace TB_QuestGame_DungonDweller
             }
 
             return gameObjects;
+        }
+
+        public List<AdventurerObject> GetAdventurerObjectsByDungeonLocationId(int dungeonLocationId)
+        {
+            List<AdventurerObject> adventurerObjects = new List<AdventurerObject>();
+
+            //
+            // run through the game object list and grab all lthat are in the current dungeon location
+            //
+            foreach (GameObject gameObject in _gameObjects)
+            {
+                if (gameObject.DungeonLocationId == dungeonLocationId && gameObject is AdventurerObject)
+                {
+                    adventurerObjects.Add(gameObject as AdventurerObject);
+                }
+            }
+
+            return adventurerObjects;
         }
 
         #endregion

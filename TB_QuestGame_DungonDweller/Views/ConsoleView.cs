@@ -717,6 +717,62 @@ namespace TB_QuestGame_DungonDweller
             DisplayGamePlayScreen("Current Inventory", Text.CurrentInventory(_gameAdventurer.Inventory), ActionMenu.MainMenu, "");
         }
 
+        public int DisplayGetAdventurerObjectToPickUp()
+        {
+            int gameObjectId = 0;
+            bool validGameObjectId = false;
+
+            //
+            // get a list of adventurer objects in the current dungeon location
+            //
+            List<AdventurerObject> adventurerObjectsInDungeonLocation = _gameDungeon.GetAdventurerObjectsByDungeonLocationId(_gameAdventurer.DungeonLocationID);
+
+            if (adventurerObjectsInDungeonLocation.Count > 0)
+            {
+                DisplayGamePlayScreen("Pick Up Game Object", Text.GameObjectsChooseList(adventurerObjectsInDungeonLocation), ActionMenu.MainMenu, "");
+
+                while (!validGameObjectId)
+                {
+                    //
+                    // get an integer from the player
+                    //
+                    GetInteger($"Enter the ID number of the object you wish to add to your inventory: ", 0, 0, out gameObjectId);
+
+                    //
+                    // validate integer as a valid game object id and in current location
+                    //
+                    if (_gameDungeon.IsValidAdventurerObjectByLocationId(gameObjectId, _gameAdventurer.DungeonLocationID))
+                    {
+                        AdventurerObject adventurerObject = _gameDungeon.GetGameObjectById(gameObjectId) as AdventurerObject;
+                        if (adventurerObject.CanInventory)
+                        {
+                            validGameObjectId = true;
+                        }
+                        else
+                        {
+                            ClearInputBox();
+                            DisplayInputErrorMessage("It appears you may not add that item to your inventory. Please try again.");
+                        }
+                    }
+                    else
+                    {
+                        ClearInputBox();
+                        DisplayInputErrorMessage("It appears your entered an invalid game object ID. Please try again.");
+                    }
+                }
+            }
+            else
+            {
+                DisplayGamePlayScreen("Pick Up Game Object", "It appears there are no game objects here.", ActionMenu.MainMenu, "");
+            }
+
+            return gameObjectId;
+        }
+
+        public void DisplayConfirmAdventurerObjectAddedToInventory(AdventurerObject objectAddedToInventory)
+        {
+            DisplayGamePlayScreen("Pick Up Game Object", $"The {objectAddedToInventory.Name} has been added to your inventory.", ActionMenu.MainMenu, "");
+        }
         #endregion
 
         #endregion

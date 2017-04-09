@@ -168,6 +168,10 @@ namespace TB_QuestGame_DungonDweller
                         LookAtAction();
                         break;
 
+                    case AdventurerAction.PickUp:
+                        PickUpAction();
+                        break;
+
                     case AdventurerAction.Inventory:
                         _gameConsoleView.DisplayInventory();
                         break;
@@ -262,6 +266,35 @@ namespace TB_QuestGame_DungonDweller
             }
         }
 
+        private void PickUpAction()
+        {
+            //
+            // display a list of adventurer object in dungeon location and get a player choice
+            //
+            int adventurerObjectToPickUpId = _gameConsoleView.DisplayGetAdventurerObjectToPickUp();
+
+            //
+            // add the adventurer object to adventurer's inventory
+            //
+            if (adventurerObjectToPickUpId != 0)
+            {
+                //
+                // get the game object from the dungeon
+                //
+                AdventurerObject adventurerObject = _gameDungeon.GetGameObjectById(adventurerObjectToPickUpId) as AdventurerObject;
+
+                //
+                // note: adventurer object is added to list and the dungeon location of the object is set to 0
+                //
+                _gameAdventurer.Inventory.Add(adventurerObject);
+                adventurerObject.DungeonLocationId = 0;
+
+                //
+                // display confirmation message
+                //
+                _gameConsoleView.DisplayConfirmAdventurerObjectAddedToInventory(adventurerObject);
+            }
+        }
         #endregion
     }
 }

@@ -48,13 +48,14 @@ namespace TB_QuestGame_DungonDweller
             MenuTitle = "Main Menu",
             MenuChoices = new Dictionary<char, AdventurerAction>()
                 {
-                    { '1', AdventurerAction.AdventurerInfo },     
+                    
+                    { '1', AdventurerAction.Travel },
                     { '2', AdventurerAction.LookAround },
                     { '3', AdventurerAction.LookAt },
                     { '4', AdventurerAction.PickUp },
                     { '5', AdventurerAction.PutDown },
                     { '6', AdventurerAction.Inventory },
-                    { '7', AdventurerAction.Travel },
+                    { '7', AdventurerAction.AdventurerInfo },
                     { '8', AdventurerAction.AdventurerLocationsVisited },
                     //{ '6', AdventurerAction.ListDungeonLocations },
                     //{ '7', AdventurerAction.ListGameObjects },     

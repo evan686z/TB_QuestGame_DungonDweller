@@ -172,6 +172,10 @@ namespace TB_QuestGame_DungonDweller
                         PickUpAction();
                         break;
 
+                    case AdventurerAction.PutDown:
+                        PutDownAction();
+                        break;
+
                     case AdventurerAction.Inventory:
                         _gameConsoleView.DisplayInventory();
                         break;
@@ -294,6 +298,31 @@ namespace TB_QuestGame_DungonDweller
                 //
                 _gameConsoleView.DisplayConfirmAdventurerObjectAddedToInventory(adventurerObject);
             }
+        }
+
+        private void PutDownAction()
+        {
+            //
+            // display a list of adventurer object in dungeon location and get a player choice
+            //
+            int inventoryObjectToPutDownId = _gameConsoleView.DisplayGetInventoryObjectToPutDown();
+
+            //
+            // get the game object from the dungeon
+            //
+            AdventurerObject adventurerObject = _gameDungeon.GetGameObjectById(inventoryObjectToPutDownId) as AdventurerObject;
+
+            //
+            // remove the object from inventory and set the dungeon location to the current value
+            //
+            _gameAdventurer.Inventory.Remove(adventurerObject);
+            adventurerObject.DungeonLocationId = _gameAdventurer.DungeonLocationID;
+
+            //
+            // display confirmation message
+            //
+            _gameConsoleView.DisplayConfirmAdventurerObjectRemovedFromInventory(adventurerObject);
+
         }
         #endregion
     }

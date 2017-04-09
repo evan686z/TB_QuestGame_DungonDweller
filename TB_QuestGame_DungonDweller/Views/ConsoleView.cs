@@ -773,6 +773,55 @@ namespace TB_QuestGame_DungonDweller
         {
             DisplayGamePlayScreen("Pick Up Game Object", $"The {objectAddedToInventory.Name} has been added to your inventory.", ActionMenu.MainMenu, "");
         }
+
+        public int DisplayGetInventoryObjectToPutDown()
+        {
+            int adventurerObjectId = 0;
+            bool validInventoryObjectId = false;
+
+            if (_gameAdventurer.Inventory.Count > 0)
+            {
+                DisplayGamePlayScreen("Put Down Game Object", Text.GameObjectsChooseList(_gameAdventurer.Inventory), ActionMenu.MainMenu, "");
+
+                while (!validInventoryObjectId)
+                {
+                    //
+                    // get an integer from the player
+                    //
+                    GetInteger($"Enter the ID number of the object you wish to remove from your inventory: ", 0, 0, out adventurerObjectId);
+
+                    //
+                    // find object in inventory
+                    // note: LINQ used, but a foreach loop may also be used
+                    //
+                    AdventurerObject objectToPutDown = _gameAdventurer.Inventory.FirstOrDefault(o => o.Id == adventurerObjectId);
+
+                    //
+                    // validate object in inventory
+                    //
+                    if (objectToPutDown != null)
+                    {
+                        validInventoryObjectId = true;
+                    }
+                    else
+                    {
+                        ClearInputBox();
+                        DisplayInputErrorMessage("It appears you entered the ID of an object not in the inventory. Please try again.");
+                    }
+                }
+            }
+            else
+            {
+                DisplayGamePlayScreen("Pick Up Game Object", "It appears there are no objects currently in inventory.", ActionMenu.MainMenu, "");
+            }
+
+            return adventurerObjectId;
+        }
+
+        public void DisplayConfirmAdventurerObjectRemovedFromInventory(AdventurerObject objectRemovedFromInventory)
+        {
+            DisplayGamePlayScreen("Put Down Game Object", $"The {objectRemovedFromInventory.Name} has been removed from your inventory.", ActionMenu.MainMenu, "");
+        }
         #endregion
 
         #endregion

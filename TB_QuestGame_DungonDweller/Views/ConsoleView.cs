@@ -574,7 +574,7 @@ namespace TB_QuestGame_DungonDweller
 
         public void DisplayListOfDungeonLocations()
         {
-            DisplayGamePlayScreen("List: Dungeon Locations", Text.ListDungeonLocations(_gameDungeon.SpaceTimeLocations),
+            DisplayGamePlayScreen("List: Dungeon Locations", Text.ListDungeonLocations(_gameDungeon.dungeonLocations),
                 ActionMenu.AdminMenu, "");
         }
 
@@ -603,7 +603,7 @@ namespace TB_QuestGame_DungonDweller
             int spaceTimeLocationId = 0;
             bool validSpaceTimeLocationID = false;
 
-            DisplayGamePlayScreen("Travel to a new Dungeon Location", Text.Travel(_gameAdventurer, _gameDungeon.SpaceTimeLocations),
+            DisplayGamePlayScreen("Travel to a new Dungeon Location", Text.Travel(_gameAdventurer, _gameDungeon.dungeonLocations),
                 ActionMenu.MainMenu, "");
 
             while (!validSpaceTimeLocationID)
@@ -821,6 +821,11 @@ namespace TB_QuestGame_DungonDweller
         public void DisplayConfirmAdventurerObjectRemovedFromInventory(AdventurerObject objectRemovedFromInventory)
         {
             DisplayGamePlayScreen("Put Down Game Object", $"The {objectRemovedFromInventory.Name} has been removed from your inventory.", ActionMenu.MainMenu, "");
+        }
+
+        public void DisplayListOfAllNpcObjects()
+        {
+            DisplayGamePlayScreen("List: NPC Objects", Text.ListAllNpcObjects(_gameDungeon.Npcs), ActionMenu.AdminMenu, "");
         }
         #endregion
 

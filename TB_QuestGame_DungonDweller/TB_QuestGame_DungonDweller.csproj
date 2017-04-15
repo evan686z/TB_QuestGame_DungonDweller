@@ -44,9 +44,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assests\ActionMenu.cs" />
-    <Compile Include="Assests\DungeonObjectsDungeonLocations.cs" />
-    <Compile Include="Assests\DungeonObjectsGameObjects.cs" />
+    <Compile Include="Assests\DungeonLocations.cs" />
+    <Compile Include="Assests\DungeonGameObjects.cs" />
     <Compile Include="Assests\Text.cs" />
+    <Compile Include="Assests\DungeonNpcs.cs" />
     <Compile Include="ConsoleUtilities\ConsoleLayout.cs" />
     <Compile Include="ConsoleUtilities\ConsoleTheme.cs" />
     <Compile Include="ConsoleUtilities\ConsoleWindowControl.cs" />
@@ -56,11 +57,15 @@
     <Compile Include="Models\AdventurerAction.cs" />
     <Compile Include="Models\AdventurerObject.cs" />
     <Compile Include="Models\Character.cs" />
+    <Compile Include="Models\Civilian.cs" />
     <Compile Include="Models\Dungeon.cs" />
     <Compile Include="Models\DungeonLocation.cs" />
     <Compile Include="Models\Enums\AdventurerObjectType.cs" />
     <Compile Include="Models\GameObject.cs" />
+    <Compile Include="Models\ISpeak.cs" />
     <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\Npc.cs" />
+    <Compile Include="Models\Sound.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\ConsoleView.cs" />
@@ -68,7 +73,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Assests\Sounds\BattleCry.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assests\Sounds\MetalScraping.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assests\Sounds\walking.wav">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

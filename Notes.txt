@@ -1,2 +1,15 @@
 Notes:
 	change location access to locked(false) and only accessible if you visited previous location
+
+	// freesound.org
+        static void Main(string[] args)
+        {
+            PlayMusic();
+        }
+        static void PlayMusic()
+        {
+            //change to copy always or copy if new in properties of sound file
+            SoundPlayer scaryMusic = new SoundPlayer(@"folder\file.wav");
+
+            scaryMusic.PlaySync();
+        }

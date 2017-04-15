@@ -59,7 +59,7 @@ namespace TB_QuestGame_DungonDweller
                 DungeonLocationId = 4,
                 Description = "A glass bottle filled with a glowing teal liquid, that will heal all wounds and restore your mana.",
                 ExperiencePoints = 15,
-                Type = AdventurerObjectType.Medicine,
+                Type = AdventurerObjectType.Healing,
                 Value = 45,
                 CanInventory = true,
                 IsConsumable = true,

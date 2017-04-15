@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace TB_QuestGame_DungonDweller
 {
-    public enum AdventurerObjectType
+    interface ISpeak
     {
-        Healing,
-        Weapon,
-        Treasure,
-        Information
+        List<string> Messages { get; set; }
+        string Speak();
     }
 }

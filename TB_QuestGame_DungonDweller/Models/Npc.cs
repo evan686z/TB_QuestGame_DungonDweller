@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace TB_QuestGame_DungonDweller
 {
-    public enum AdventurerObjectType
+    public abstract class Npc : Character
     {
-        Healing,
-        Weapon,
-        Treasure,
-        Information
+        public abstract int Id { get; set; }
+        public abstract string Description { get; set; }
     }
 }

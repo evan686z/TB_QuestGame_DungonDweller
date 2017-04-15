@@ -19,8 +19,14 @@ namespace TB_QuestGame_DungonDweller
 
         private List<DungeonLocation> _dungeonLocations;
         private List<GameObject> _gameObjects;
+        private List<Npc> _npcs;
 
-        public List<DungeonLocation> SpaceTimeLocations
+        public List<Npc> Npcs
+        {
+            get { return _npcs; }
+            set { _npcs = value; }
+        }
+        public List<DungeonLocation> dungeonLocations
         {
             get { return _dungeonLocations; }
             set { _dungeonLocations = value; }
@@ -59,6 +65,7 @@ namespace TB_QuestGame_DungonDweller
         {
             _dungeonLocations = DungeonObjects.DungeonLocations;
             _gameObjects = DungeonObjects.GameObject;
+            _npcs = DungeonObjects.Npcs;
         }
 
         #endregion
@@ -149,7 +156,7 @@ namespace TB_QuestGame_DungonDweller
         {
             int MaxId = 0;
 
-            foreach (DungeonLocation spaceTimeLocation in SpaceTimeLocations)
+            foreach (DungeonLocation spaceTimeLocation in dungeonLocations)
             {
                 if (spaceTimeLocation.DungeonLocationID > MaxId)
                 {
@@ -283,6 +290,80 @@ namespace TB_QuestGame_DungonDweller
             }
 
             return adventurerObjects;
+        }
+
+        public bool IsValidNpcByLocationId(int npcId, int currentDungeonLocation)
+        {
+            List<int> npcIds = new List<int>();
+
+            //
+            // create a list of NPC ids in current dungeon location
+            //
+            foreach (Npc npc in _npcs)
+            {
+                if (npc.DungeonLocationID == currentDungeonLocation)
+                {
+                    npcIds.Add(npc.Id);
+                }
+            }
+
+            //
+            // determine if the npc id is a valid id and return the result
+            //
+            if (npcIds.Contains(npcId))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Npc GetNpcById(int Id)
+        {
+            Npc npcToReturn = null;
+
+            //
+            // run through the NPC object list and grab the correct one
+            //
+            foreach (Npc npc in _npcs)
+            {
+                if (npc.Id == Id)
+                {
+                    npcToReturn = npc;
+                }
+            }
+
+            //
+            // the specified ID was not found in the dungeon
+            // throw and exception
+            //
+            if (npcToReturn == null)
+            {
+                string feedbackMessage = $"The NPC ID {Id} does not exist in the current Dungeon.";
+                throw new ArgumentException(Id.ToString(), feedbackMessage);
+            }
+
+            return npcToReturn;
+        }
+
+        public List<Npc> GetNpcsByDungeonLocationId(int dungeonLocationId)
+        {
+            List<Npc> npcs = new List<Npc>();
+
+            //
+            // run through the NPC list and grab all that are in the current dungeon location
+            //
+            foreach (Npc npc in _npcs)
+            {
+                if (npc.DungeonLocationID == dungeonLocationId)
+                {
+                    npcs.Add(npc);
+                }
+            }
+
+            return npcs;
         }
 
         #endregion

@@ -73,8 +73,9 @@ namespace TB_QuestGame_DungonDweller
             {
                 { '1', AdventurerAction.ListDungeonLocations },
                 { '2', AdventurerAction.ListGameObjects },
-                { '3', AdventurerAction.EditAdventurerInfo },
-                { '4', AdventurerAction.ReturnToMainMenu }
+                { '3', AdventurerAction.ListNonPlayerCharacters },
+                { '4', AdventurerAction.EditAdventurerInfo },
+                { '0', AdventurerAction.ReturnToMainMenu }
             }
         };
     }

@@ -434,6 +434,43 @@ namespace TB_QuestGame_DungonDweller
             return messageBoxText;
         }
 
+        public static string ListAllNpcObjects(IEnumerable<Npc> npcObjects)
+        {
+            //
+            // display table name and column headers
+            //
+            string messageBoxText =
+                "NPCs Objects\n" +
+                " \n" +
+
+                //
+                // display table header
+                //
+                "ID".PadRight(10) +
+                "Name".PadRight(30) +
+                "Dungeon Location Id".PadRight(10) + " \n" +
+                "---".PadRight(10) +
+                "-------------------".PadRight(30) +
+                "-------------------".PadRight(10) + " \n";
+
+            //
+            // display all traveler objects
+            //
+            string npcObjectRows = null;
+            foreach (Npc npcObject in npcObjects)
+            {
+                npcObjectRows +=
+                    $"{npcObject.Id}".PadRight(10) +
+                    $"{npcObject.Name}".PadRight(30) +
+                    $"{npcObject.DungeonLocationID}".PadRight(10) +
+                    Environment.NewLine;
+            }
+
+            messageBoxText += npcObjectRows;
+
+            return messageBoxText;
+        }
+
         #endregion
 
         public static List<string> StatusBox(Adventurer adventurer)

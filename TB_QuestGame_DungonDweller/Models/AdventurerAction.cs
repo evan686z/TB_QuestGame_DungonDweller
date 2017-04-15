@@ -14,22 +14,29 @@ namespace TB_QuestGame_DungonDweller
         None,
         MissionSetup,
         LookAround,
+        Travel,
+
+        TravelerMenu,
+        AdventurerInfo,
+        Inventory,
+        AdventurerLocationsVisited,
+
+        ObjectMenu,
         LookAt,
         PickUp,
         PutDown,
-        Inventory,
-        Travel,
-        AdventurerInfo,
-        EditAdventurerInfo,
-        AdventurerInventory,
-        AdventurerTreasure,
-        AdventurerLocationsVisited,
+
+        NonplayerCharacterMenu,
+        TalkTo,
+
+        AdminMenu,
         ListDungeonLocations,
         ListGameObjects,
-        ListItems,
-        ListTreasures,
-        AdminMenu,
+        EditAdventurerInfo,
+        ListNonPlayerCharacters,
+
         ReturnToMainMenu,
         Exit
+
     }
 }

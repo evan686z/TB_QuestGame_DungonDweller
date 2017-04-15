@@ -19,6 +19,7 @@ namespace TB_QuestGame_DungonDweller
         private bool _playingGame;
         private DungeonLocation _currentLocation;
         private GameObject _gameDungeonObjects;
+        private Sound _gameSound;
 
         #endregion
 
@@ -155,6 +156,10 @@ namespace TB_QuestGame_DungonDweller
                         // set the game play screen to the current location info format
                         //
                         _gameConsoleView.DisplayGamePlayScreen("Current Location", Text.CurrentLocationInfo(_currentLocation), ActionMenu.MainMenu, "");
+                        //
+                        // play sound when you travel
+                        //
+                        //_gameSound
                         break;
 
                     case AdventurerAction.AdventurerLocationsVisited:
@@ -163,6 +168,10 @@ namespace TB_QuestGame_DungonDweller
 
                     case AdventurerAction.ListGameObjects:
                         _gameConsoleView.DisplayListOfAllGameObjects();
+                        break;
+
+                    case AdventurerAction.ListNonPlayerCharacters:
+                        _gameConsoleView.DisplayListOfAllNpcObjects();
                         break;
 
                     case AdventurerAction.LookAt:
@@ -246,6 +255,12 @@ namespace TB_QuestGame_DungonDweller
                 //
                 // update experience points for adding items to inventory
                 //
+                // TODO: only add experience for new objects and not add experience for items already counted
+                // if (an item was added, add experience)?
+                //if (!_gameAdventurer.Inventory.Contains())
+                //{
+
+                //}
                 foreach (GameObject gameObject in _gameAdventurer.Inventory)
                 {
                     _gameAdventurer.ExperiencePoints += gameObject.ExperiencePoints;

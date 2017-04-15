@@ -590,12 +590,16 @@ namespace TB_QuestGame_DungonDweller
             //
             List<GameObject> gameObjectsInCurrentDungeonLocation = _gameDungeon.GetGameObjectsByDungeonLocationId(_gameAdventurer.DungeonLocationID);
 
+            //
+            // get list of NPCs in current dungeon location
+            //
+            List<Npc> npcsInCurrentDungeonLocation = _gameDungeon.GetNpcsByDungeonLocationId(_gameAdventurer.DungeonLocationID);
+
             string messageBoxText = Text.LookAround(currentDungeonLocation) + Environment.NewLine + Environment.NewLine;
-            messageBoxText += Text.GameObjectsChooseList(gameObjectsInCurrentDungeonLocation);
+            messageBoxText += Text.GameObjectsChooseList(gameObjectsInCurrentDungeonLocation) + Environment.NewLine;
+            messageBoxText += Text.NpcsChooseList(npcsInCurrentDungeonLocation);
 
             DisplayGamePlayScreen("Current Location", messageBoxText, ActionMenu.MainMenu, "");
-
-            //DisplayGamePlayScreen("Current Location", Text.LookAround(currentDungeonLocation), ActionMenu.MainMenu, "");
         }
 
         public int DisplayGetNextDungeonLocation()

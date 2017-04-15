@@ -16,6 +16,9 @@ namespace TB_QuestGame_DungonDweller
             QuestInfo,
             InitializeMission,
             MainMenu,
+            ObjectMenu,
+            NpcMenu,
+            AdventurerMenu,
             AdminMenu
 
         }
@@ -51,15 +54,9 @@ namespace TB_QuestGame_DungonDweller
                     
                     { '1', AdventurerAction.Travel },
                     { '2', AdventurerAction.LookAround },
-                    { '3', AdventurerAction.LookAt },
-                    { '4', AdventurerAction.PickUp },
-                    { '5', AdventurerAction.PutDown },
-                    { '6', AdventurerAction.Inventory },
-                    { '7', AdventurerAction.AdventurerInfo },
-                    { '8', AdventurerAction.AdventurerLocationsVisited },
-                    //{ '6', AdventurerAction.ListDungeonLocations },
-                    //{ '7', AdventurerAction.ListGameObjects },     
-                    //{ '6', AdventurerAction.EditAdventurerInfo },
+                    { '3', AdventurerAction.ObjectMenu },
+                    { '4', AdventurerAction.NonPlayerCharacterMenu },
+                    { '5', AdventurerAction.AdventurerMenu },
                     { '9', AdventurerAction.AdminMenu},
                     { '0', AdventurerAction.Exit }
                 }
@@ -75,6 +72,43 @@ namespace TB_QuestGame_DungonDweller
                 { '2', AdventurerAction.ListGameObjects },
                 { '3', AdventurerAction.ListNonPlayerCharacters },
                 { '4', AdventurerAction.EditAdventurerInfo },
+                { '0', AdventurerAction.ReturnToMainMenu }
+            }
+        };
+
+        public static Menu AdventurerMenu = new Menu()
+        {
+            MenuName = "AdventurerMenu",
+            MenuTitle = "Adventurer Menu",
+            MenuChoices = new Dictionary<char, AdventurerAction>()
+            {
+                { '1', AdventurerAction.AdventurerInfo },
+                { '2', AdventurerAction.Inventory },
+                { '3', AdventurerAction.AdventurerLocationsVisited },
+                { '0', AdventurerAction.ReturnToMainMenu }
+            }
+        };
+
+        public static Menu ObjectMenu = new Menu()
+        {
+            MenuName = "ObjectMenu",
+            MenuTitle = "Object Menu",
+            MenuChoices = new Dictionary<char, AdventurerAction>()
+            {
+                { '1', AdventurerAction.LookAt },
+                { '2', AdventurerAction.PickUp },
+                { '3', AdventurerAction.PutDown },
+                { '0', AdventurerAction.ReturnToMainMenu }
+            }
+        };
+
+        public static Menu NpcMenu = new Menu()
+        {
+            MenuName = "NpcMenu",
+            MenuTitle = "NPC Menu",
+            MenuChoices = new Dictionary<char, AdventurerAction>()
+            {
+                { '1', AdventurerAction.TalkTo },
                 { '0', AdventurerAction.ReturnToMainMenu }
             }
         };

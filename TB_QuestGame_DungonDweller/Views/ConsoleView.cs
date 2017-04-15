@@ -536,7 +536,7 @@ namespace TB_QuestGame_DungonDweller
 
         public void DisplayAdventurerInfo()
         {
-            DisplayGamePlayScreen("Adventurer Information", Text.AdventurerInfo(_gameAdventurer), ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Adventurer Information", Text.AdventurerInfo(_gameAdventurer), ActionMenu.AdventurerMenu, "");
         }
 
         public Adventurer DisplayEditAdventurerInfo(Adventurer adventurer)
@@ -651,7 +651,7 @@ namespace TB_QuestGame_DungonDweller
                 visitedSpaceTimeLocations.Add(_gameDungeon.GetSpaceTimeLocationById(spaceTimeLocationID));
             }
 
-            DisplayGamePlayScreen("Dungeon Locations Visited", Text.VisitedLocations(visitedSpaceTimeLocations), ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Dungeon Locations Visited", Text.VisitedLocations(visitedSpaceTimeLocations), ActionMenu.AdventurerMenu, "");
         }
 
         public void UpdateDungeonLocationAccessibility()
@@ -680,7 +680,7 @@ namespace TB_QuestGame_DungonDweller
 
             if (gameObjectInDungeonLocation.Count > 0)
             {
-                DisplayGamePlayScreen("Look at an Object", Text.GameObjectsChooseList(gameObjectInDungeonLocation), ActionMenu.MainMenu, "");
+                DisplayGamePlayScreen("Look at an Object", Text.GameObjectsChooseList(gameObjectInDungeonLocation), ActionMenu.ObjectMenu, "");
 
                 while (!validGameObjectId)
                 {
@@ -713,12 +713,12 @@ namespace TB_QuestGame_DungonDweller
 
         public void DisplayGameObjectInfo(GameObject gameObject)
         {
-            DisplayGamePlayScreen("Current Location", Text.LookAt(gameObject), ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Current Location", Text.LookAt(gameObject), ActionMenu.ObjectMenu, "");
         }
 
         public void DisplayInventory()
         {
-            DisplayGamePlayScreen("Current Inventory", Text.CurrentInventory(_gameAdventurer.Inventory), ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Current Inventory", Text.CurrentInventory(_gameAdventurer.Inventory), ActionMenu.AdventurerMenu, "");
         }
 
         public int DisplayGetAdventurerObjectToPickUp()
@@ -733,7 +733,7 @@ namespace TB_QuestGame_DungonDweller
 
             if (adventurerObjectsInDungeonLocation.Count > 0)
             {
-                DisplayGamePlayScreen("Pick Up Game Object", Text.GameObjectsChooseList(adventurerObjectsInDungeonLocation), ActionMenu.MainMenu, "");
+                DisplayGamePlayScreen("Pick Up Game Object", Text.GameObjectsChooseList(adventurerObjectsInDungeonLocation), ActionMenu.ObjectMenu, "");
 
                 while (!validGameObjectId)
                 {
@@ -767,7 +767,7 @@ namespace TB_QuestGame_DungonDweller
             }
             else
             {
-                DisplayGamePlayScreen("Pick Up Game Object", "It appears there are no game objects here.", ActionMenu.MainMenu, "");
+                DisplayGamePlayScreen("Pick Up Game Object", "It appears there are no game objects here.", ActionMenu.ObjectMenu, "");
             }
 
             return gameObjectId;
@@ -775,7 +775,7 @@ namespace TB_QuestGame_DungonDweller
 
         public void DisplayConfirmAdventurerObjectAddedToInventory(AdventurerObject objectAddedToInventory)
         {
-            DisplayGamePlayScreen("Pick Up Game Object", $"The {objectAddedToInventory.Name} has been added to your inventory.", ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Pick Up Game Object", $"The {objectAddedToInventory.Name} has been added to your inventory.", ActionMenu.ObjectMenu, "");
         }
 
         public int DisplayGetInventoryObjectToPutDown()
@@ -785,7 +785,7 @@ namespace TB_QuestGame_DungonDweller
 
             if (_gameAdventurer.Inventory.Count > 0)
             {
-                DisplayGamePlayScreen("Put Down Game Object", Text.GameObjectsChooseList(_gameAdventurer.Inventory), ActionMenu.MainMenu, "");
+                DisplayGamePlayScreen("Put Down Game Object", Text.GameObjectsChooseList(_gameAdventurer.Inventory), ActionMenu.ObjectMenu, "");
 
                 while (!validInventoryObjectId)
                 {
@@ -816,7 +816,7 @@ namespace TB_QuestGame_DungonDweller
             }
             else
             {
-                DisplayGamePlayScreen("Pick Up Game Object", "It appears there are no objects currently in inventory.", ActionMenu.MainMenu, "");
+                DisplayGamePlayScreen("Pick Up Game Object", "It appears there are no objects currently in inventory.", ActionMenu.ObjectMenu, "");
             }
 
             return adventurerObjectId;
@@ -824,12 +824,78 @@ namespace TB_QuestGame_DungonDweller
 
         public void DisplayConfirmAdventurerObjectRemovedFromInventory(AdventurerObject objectRemovedFromInventory)
         {
-            DisplayGamePlayScreen("Put Down Game Object", $"The {objectRemovedFromInventory.Name} has been removed from your inventory.", ActionMenu.MainMenu, "");
+            DisplayGamePlayScreen("Put Down Game Object", $"The {objectRemovedFromInventory.Name} has been removed from your inventory.", ActionMenu.ObjectMenu, "");
         }
 
         public void DisplayListOfAllNpcObjects()
         {
-            DisplayGamePlayScreen("List: NPC Objects", Text.ListAllNpcObjects(_gameDungeon.Npcs), ActionMenu.AdminMenu, "");
+            DisplayGamePlayScreen("List: NPC Objects", Text.ListAllNpcObjects(_gameDungeon.Npcs), ActionMenu.NpcMenu, "");
+        }
+
+        public int DisplayGetNpcToTalkTo()
+        {
+            int npcId = 0;
+            bool validNpcId = false;
+
+            //
+            // get a list of NPCc in the current dungeon location
+            //
+            List<Npc> npcsInDungeonLocation = _gameDungeon.GetNpcsByDungeonLocationId(_gameAdventurer.DungeonLocationID);
+
+            if (npcsInDungeonLocation.Count > 0)
+            {
+                DisplayGamePlayScreen("Choose Character to speak with", Text.NpcsChooseList(npcsInDungeonLocation), ActionMenu.NpcMenu, "");
+
+                while (!validNpcId)
+                {
+                    //
+                    // get an integer from the player
+                    //
+                    GetInteger($"Enter the ID number of the character you wish to speak with: ", 0, 0, out npcId);
+
+                    //
+                    // validate integer as a valid NPC ID and in current location
+                    //
+                    if (_gameDungeon.IsValidNpcByLocationId(npcId, _gameAdventurer.DungeonLocationID))
+                    {
+                        Npc npc = _gameDungeon.GetNpcById(npcId);
+                        if (npc is ISpeak)
+                        {
+                            validNpcId = true;
+                        }
+                        else
+                        {
+                            ClearInputBox();
+                            DisplayInputErrorMessage("It appears this character has nothing to say. Please try again.");
+                        }
+                    }
+                    else
+                    {
+                        ClearInputBox();
+                        DisplayInputErrorMessage("It appears you entered an invalid NPC ID. Please try again.");
+                    }
+                }
+            }
+            else
+            {
+                DisplayGamePlayScreen("Choose Character to speak with: ", "It appears there are no NPCs here.", ActionMenu.NpcMenu, "");
+            }
+
+            return npcId;
+        }
+
+        public void DisplayTalkTo(Npc npc)
+        {
+            ISpeak speakingNpc = npc as ISpeak;
+
+            string message = speakingNpc.Speak();
+
+            if (message == "")
+            {
+                message = "It appears this character has nothing to say. Please try again.";
+            }
+
+            DisplayGamePlayScreen("Speak to Character", message, ActionMenu.NpcMenu, "");
         }
         #endregion
 

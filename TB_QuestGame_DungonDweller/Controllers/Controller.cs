@@ -116,14 +116,7 @@ namespace TB_QuestGame_DungonDweller
                 //
                 // get next game action from player
                 //
-                if (ActionMenu.currentMenu == ActionMenu.CurrentMenu.MainMenu)
-                {
-                    travelerActionChoice = _gameConsoleView.GetActionMenuChoice(ActionMenu.MainMenu);
-                }
-                else if (ActionMenu.currentMenu == ActionMenu.CurrentMenu.AdminMenu)
-                {
-                    travelerActionChoice = _gameConsoleView.GetActionMenuChoice(ActionMenu.AdminMenu);
-                }
+                travelerActionChoice = GetNextAdventurerAction();
 
                 //
                 // choose an action based on the player's menu choice
@@ -186,6 +179,10 @@ namespace TB_QuestGame_DungonDweller
                         PutDownAction();
                         break;
 
+                    case AdventurerAction.TalkTo:
+                        TalkToAction();
+                        break;
+
                     case AdventurerAction.Inventory:
                         _gameConsoleView.DisplayInventory();
                         break;
@@ -204,6 +201,21 @@ namespace TB_QuestGame_DungonDweller
                         _gameConsoleView.DisplayGamePlayScreen("Current Location", Text.CurrentLocationInfo(_currentLocation), ActionMenu.MainMenu, "");
                         break;
 
+                    case AdventurerAction.AdventurerMenu:
+                        ActionMenu.currentMenu = ActionMenu.CurrentMenu.AdventurerMenu;
+                        _gameConsoleView.DisplayGamePlayScreen("Adventurer Menu", "Select an operation from the menu.", ActionMenu.AdventurerMenu, "");
+                        break;
+
+                    case AdventurerAction.ObjectMenu:
+                        ActionMenu.currentMenu = ActionMenu.CurrentMenu.ObjectMenu;
+                        _gameConsoleView.DisplayGamePlayScreen("Object Menu", "Select an operation from the menu.", ActionMenu.ObjectMenu, "");
+                        break;
+
+                    case AdventurerAction.NonPlayerCharacterMenu:
+                        ActionMenu.currentMenu = ActionMenu.CurrentMenu.NpcMenu;
+                        _gameConsoleView.DisplayGamePlayScreen("NPC Menu", "Select an operation from the menu.", ActionMenu.NpcMenu, "");
+                        break;
+
                     case AdventurerAction.Exit:
                         _playingGame = false;
                         break;
@@ -217,6 +229,39 @@ namespace TB_QuestGame_DungonDweller
             // close the application
             //
             Environment.Exit(1);
+        }
+
+        private AdventurerAction GetNextAdventurerAction()
+        {
+            AdventurerAction adventurerActionChoice = AdventurerAction.None;
+
+            switch (ActionMenu.currentMenu)
+            {
+                case ActionMenu.CurrentMenu.MainMenu:
+                    adventurerActionChoice = _gameConsoleView.GetActionMenuChoice(ActionMenu.MainMenu);
+                    break;
+
+                case ActionMenu.CurrentMenu.ObjectMenu:
+                    adventurerActionChoice = _gameConsoleView.GetActionMenuChoice(ActionMenu.ObjectMenu);
+                    break;
+
+                case ActionMenu.CurrentMenu.NpcMenu:
+                    adventurerActionChoice = _gameConsoleView.GetActionMenuChoice(ActionMenu.NpcMenu);
+                    break;
+
+                case ActionMenu.CurrentMenu.AdventurerMenu:
+                    adventurerActionChoice = _gameConsoleView.GetActionMenuChoice(ActionMenu.AdventurerMenu);
+                    break;
+
+                case ActionMenu.CurrentMenu.AdminMenu:
+                    adventurerActionChoice = _gameConsoleView.GetActionMenuChoice(ActionMenu.AdminMenu);
+                    break;
+
+                default:
+                    break;
+            }
+
+            return adventurerActionChoice;
         }
 
         /// <summary>
@@ -350,6 +395,30 @@ namespace TB_QuestGame_DungonDweller
             //
             _gameConsoleView.DisplayConfirmAdventurerObjectRemovedFromInventory(adventurerObject);
 
+        }
+
+        private void TalkToAction()
+        {
+            //
+            // display a list of NPCs in dungeon location and get player choice
+            //
+            int npcToTalkToId = _gameConsoleView.DisplayGetNpcToTalkTo();
+
+            //
+            // display NPCs message
+            //
+            if (npcToTalkToId != 0)
+            {
+                //
+                // get the NPC from the universe
+                //
+                Npc npc = _gameDungeon.GetNpcById(npcToTalkToId);
+
+                //
+                // display information for the object chosen
+                //
+                _gameConsoleView.DisplayTalkTo(npc);
+            }
         }
         #endregion
     }

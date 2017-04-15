@@ -16,7 +16,7 @@ namespace TB_QuestGame_DungonDweller
         LookAround,
         Travel,
 
-        TravelerMenu,
+        AdventurerMenu,
         AdventurerInfo,
         Inventory,
         AdventurerLocationsVisited,
@@ -26,7 +26,7 @@ namespace TB_QuestGame_DungonDweller
         PickUp,
         PutDown,
 
-        NonplayerCharacterMenu,
+        NonPlayerCharacterMenu,
         TalkTo,
 
         AdminMenu,

@@ -20,6 +20,7 @@ namespace TB_QuestGame_DungonDweller
         private string _generalContents;
         private bool _accessable;
         private int _experiencePoints;
+        private string _dungeonRoomSound;
 
         #endregion
 
@@ -66,6 +67,12 @@ namespace TB_QuestGame_DungonDweller
         {
             get { return _experiencePoints; }
             set { _experiencePoints = value; }
+        }
+
+        public string DungeonRoomSound
+        {
+            get { return _dungeonRoomSound; }
+            set { _dungeonRoomSound = value; }
         }
 
         #endregion

@@ -56,6 +56,8 @@ namespace TB_QuestGame_DungonDweller
             _gameDungeon = new Dungeon();
             _gameConsoleView = new ConsoleView(_gameAdventurer, _gameDungeon);
             _playingGame = true;
+            _gameSound = new Sound();
+            //_gameDungeonObjects = new GameObject();
 
             //
             // add initial items to the adventurer's inventory
@@ -152,7 +154,7 @@ namespace TB_QuestGame_DungonDweller
                         //
                         // play sound when you travel
                         //
-                        //_gameSound
+                        _gameSound.PlaySoundTravel();
                         break;
 
                     case AdventurerAction.AdventurerLocationsVisited:
@@ -179,12 +181,14 @@ namespace TB_QuestGame_DungonDweller
                         PutDownAction();
                         break;
 
-                    case AdventurerAction.TalkTo:
+                    case AdventurerAction.TalkTo: 
                         TalkToAction();
+                        _gameSound.PlaySoundTalkTo();
                         break;
 
                     case AdventurerAction.Inventory:
                         _gameConsoleView.DisplayInventory();
+                        _gameSound.PlaySoundInventory();
                         break;
 
                     case AdventurerAction.EditAdventurerInfo:

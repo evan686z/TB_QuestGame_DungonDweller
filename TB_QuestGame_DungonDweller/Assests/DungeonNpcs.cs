@@ -47,9 +47,37 @@ namespace TB_QuestGame_DungonDweller
                 Messages = new List<string>
                 {
                     "You seek the crown of the skeleton king? You will never escape me!",
-                    "Don't think I am so easily defeated! I will enjoy feeding you to my children."
+                    "Don't think I am so easily defeated!",
+                    "Ah! Dinner has arrived, my children have not had a meal for a long time."
                 }
-            }
+            },
+
+            new Civilian
+            {
+                Id = 4,
+                Name = "Warden",
+                DungeonLocationID = 4,
+                Description = "A bulky and tall man wearing a dark cover over his face and carrying a giant sword.",
+                Messages = new List<string>
+                {
+                    "No one escapes my prison, your journey ends here Adventurer!",
+                    "Another prisoner, good a cell just opened up."
+                }
+            },
+
+            new Civilian
+            {
+                Id = 5,
+                Name = "Mysterious Light-Bound Object",
+                DungeonLocationID = 1,
+                Description = "An orb of pure light, that somehow is able to speak.",
+                Messages = new List<string>
+                {
+                    "Greetings Adventurer!",
+                    "Your Journey will not be an easy one and at the end a difficult fight, the Skeleton King.",
+                    "The Skeleton King waits for someone to end his misery and send him to the after-life."
+                }
+            },
         };
     }
 }

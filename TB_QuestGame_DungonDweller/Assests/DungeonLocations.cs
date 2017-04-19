@@ -25,7 +25,8 @@ namespace TB_QuestGame_DungonDweller
                 GeneralContents = "You push the moss aside to reveal a small room with a single torch " +
                                   "above a doorway. The only way forward is through this doorway.",
                 Accessable = true,
-                ExperiencePoints = 10
+                ExperiencePoints = 10,
+                DungeonRoomSound = @"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\DungeonEntrance.wav"
             },
             // Orc warriors
             new DungeonLocation
@@ -42,7 +43,8 @@ namespace TB_QuestGame_DungonDweller
                                   "around a cooking fire. The walk towards you, stepping over the corpes of their fellow " +
                                   "warriors. The Orcs let loose a terrifying battle cry and charge at you." ,
                 Accessable = true,
-                ExperiencePoints = 20
+                ExperiencePoints = 20,
+                DungeonRoomSound = @"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\walking.wav"
             },
             // Skeletal Warriors
             new DungeonLocation
@@ -56,7 +58,8 @@ namespace TB_QuestGame_DungonDweller
                               "Unlike the other weapons in the room, this one gleams untarnished in the light." ,
                 GeneralContents = "As you approach the sword, a group of Skeletal warriors reveal themselves to you." ,
                 Accessable = true,
-                ExperiencePoints = 20
+                ExperiencePoints = 20,
+                DungeonRoomSound = @"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\walking.wav"
             },
             // Warden Boss (necromancer, summons skeletons)
             new DungeonLocation
@@ -73,7 +76,8 @@ namespace TB_QuestGame_DungonDweller
                                   "behind one of the cells appears a ghostly skeleton with a strange aura about him." +
                                   "He holds a giant scythe and entail with him are 2 skeletal minions." ,
                 Accessable = true,
-                ExperiencePoints = 30
+                ExperiencePoints = 30,
+                DungeonRoomSound = @"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\walking.wav"
             },
             // Archmage 'insert name here'
             new DungeonLocation
@@ -89,7 +93,8 @@ namespace TB_QuestGame_DungonDweller
                                   "strange glow about them. In the distance you notice the chanting of arcane magic." +
                                   "The chanting stops and a great wizard appears, as if out of nowhere." ,
                 Accessable = true,
-                ExperiencePoints = 30
+                ExperiencePoints = 30,
+                DungeonRoomSound = @"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\walking.wav"
             },
             // Spider Queen Boss
             new DungeonLocation
@@ -106,7 +111,8 @@ namespace TB_QuestGame_DungonDweller
                                   "dark. You can barely see your hand in front of your face. On either side of the room " +
                                   "you notice something skittering around.",
                 Accessable = true,
-                ExperiencePoints = 40
+                ExperiencePoints = 40,
+                DungeonRoomSound = @"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\walking.wav"
             },
             // Obsidian Giant
             new DungeonLocation
@@ -121,7 +127,8 @@ namespace TB_QuestGame_DungonDweller
                                   "now rumbles and shakes. The whole room feels as if it is going to collapse." +
                                   "The statue drops the braizier and marches towards you." ,
                 Accessable = true,
-                ExperiencePoints = 30
+                ExperiencePoints = 30,
+                DungeonRoomSound = @"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\walking.wav"
             },
             // Skeleton King
             new DungeonLocation
@@ -137,7 +144,8 @@ namespace TB_QuestGame_DungonDweller
                                   "luster still shrine through the dust. In the throne sits the great Skeleton King." +
                                   "He rises from his throne and lets out a massive wail.",
                 Accessable = false,
-                ExperiencePoints = 100
+                ExperiencePoints = 100,
+                DungeonRoomSound = @"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\walking.wav"
             }
         };
     }

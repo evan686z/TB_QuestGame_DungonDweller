@@ -10,3 +10,4 @@ C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_D
 C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\bin\Debug\Assests\Sounds\Prison.wav
 C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\bin\Debug\Assests\Sounds\peopleTalking.wav
 C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\bin\Debug\Assests\Sounds\DungeonEntrance.wav
+C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\bin\Debug\Assests\Sounds\walking_short.wav

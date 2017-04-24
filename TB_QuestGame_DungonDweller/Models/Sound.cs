@@ -12,7 +12,7 @@ namespace TB_QuestGame_DungonDweller
         //change to copy always or copy if new in properties of sound file
         public void PlaySoundTravel()
         {
-            SoundPlayer sound = new SoundPlayer(@"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\walking.wav");
+            SoundPlayer sound = new SoundPlayer(@"~\Assests\Sounds\walking_short.wav");
 
             sound.PlaySync();
         }

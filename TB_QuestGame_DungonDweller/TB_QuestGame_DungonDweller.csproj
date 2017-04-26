@@ -83,6 +83,12 @@
     <Content Include="Assests\Sounds\DungeonEntrance.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Assests\Sounds\exitGame.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assests\Sounds\peopleTalking_short.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Assests\Sounds\Prison.wav">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

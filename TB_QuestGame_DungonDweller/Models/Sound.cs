@@ -12,25 +12,32 @@ namespace TB_QuestGame_DungonDweller
         //change to copy always or copy if new in properties of sound file
         public void PlaySoundTravel()
         {
-            SoundPlayer sound = new SoundPlayer(@"~\Assests\Sounds\walking_short.wav");
+            SoundPlayer sound = new SoundPlayer(@"Assests\Sounds\walking_short.wav");
 
             sound.PlaySync();
         }
 
         public void PlaySoundInventory()
         {
-            SoundPlayer sound = new SoundPlayer(@"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\bagRustling.wav");
+            SoundPlayer sound = new SoundPlayer(@"Assests\Sounds\bagRustling.wav");
 
             sound.PlaySync();
         }
 
         public void PlaySoundTalkTo()
         {
-            SoundPlayer sound = new SoundPlayer(@"C:\Users\Evan\Desktop\School\CIT195 .NET App and Game Programming\TB_QuestGame_DungonDweller\TB_QuestGame_DungonDweller\Assests\Sounds\peopleTalking.wav");
+            SoundPlayer sound = new SoundPlayer(@"Assests\Sounds\peopleTalking_short.wav");
 
             sound.PlaySync();
         }
-        
+
+        public void PlaySoundExit()
+        {
+            SoundPlayer sound = new SoundPlayer(@"Assests\Sounds\exitGame.wav");
+
+            sound.PlaySync();
+        }
+
         //
         //Dungeon Room Sounds
         //

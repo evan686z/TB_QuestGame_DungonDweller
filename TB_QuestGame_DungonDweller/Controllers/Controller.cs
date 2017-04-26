@@ -221,6 +221,7 @@ namespace TB_QuestGame_DungonDweller
                         break;
 
                     case AdventurerAction.Exit:
+                        _gameSound.PlaySoundExit();
                         _playingGame = false;
                         break;
 

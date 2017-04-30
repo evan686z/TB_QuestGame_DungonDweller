@@ -484,9 +484,12 @@ namespace TB_QuestGame_DungonDweller
                 // display table header
                 //
                 "ID".PadRight(10) +
-                "Name".PadRight(30) + "\n" +
+                "Name".PadRight(35) +
+                "Description".PadRight(30) + "\n" +
                 "---".PadRight(10) +
+                "----------------------".PadRight(35) +
                 "----------------------".PadRight(30) + "\n";
+
 
             //
             // display all NPCs in rows
@@ -496,7 +499,8 @@ namespace TB_QuestGame_DungonDweller
             {
                 npcRows +=
                     $"{npc.Id}".PadRight(10) +
-                    $"{npc.Name}".PadRight(30) +
+                    $"{npc.Name}".PadRight(35) +
+                    $"{npc.Description}".PadRight(30) +
                     Environment.NewLine;
             }
 

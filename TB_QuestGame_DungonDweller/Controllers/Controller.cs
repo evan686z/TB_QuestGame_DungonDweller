@@ -154,7 +154,7 @@ namespace TB_QuestGame_DungonDweller
                         //
                         // play sound when you travel
                         //
-                        _gameSound.PlaySoundTravel();
+                        //_gameSound.PlaySoundTravel();
                         break;
 
                     case AdventurerAction.AdventurerLocationsVisited:
@@ -183,12 +183,12 @@ namespace TB_QuestGame_DungonDweller
 
                     case AdventurerAction.TalkTo: 
                         TalkToAction();
-                        _gameSound.PlaySoundTalkTo();
+                        //_gameSound.PlaySoundTalkTo();
                         break;
 
                     case AdventurerAction.Inventory:
                         _gameConsoleView.DisplayInventory();
-                        _gameSound.PlaySoundInventory();
+                        //_gameSound.PlaySoundInventory();
                         break;
 
                     case AdventurerAction.EditAdventurerInfo:
@@ -221,7 +221,7 @@ namespace TB_QuestGame_DungonDweller
                         break;
 
                     case AdventurerAction.Exit:
-                        _gameSound.PlaySoundExit();
+                        //_gameSound.PlaySoundExit();
                         _playingGame = false;
                         break;
 
@@ -315,6 +315,11 @@ namespace TB_QuestGame_DungonDweller
                 {
                     _gameAdventurer.ExperiencePoints += gameObject.ExperiencePoints;
                 }
+
+                //
+                // Leveling up screen
+                //
+                LevelUp();
 
             }
 
@@ -425,6 +430,41 @@ namespace TB_QuestGame_DungonDweller
                 _gameConsoleView.DisplayTalkTo(npc);
             }
         }
+
+        private void LevelUp()
+        {
+            if (_gameAdventurer.ExperiencePoints == 100)
+            {
+                _gameConsoleView.DisplayGamePlayScreen("Level 2 Reached!", "You have reached level 2! Congradulations!", ActionMenu.MainMenu, "");
+            }
+            else if (_gameAdventurer.ExperiencePoints == 200)
+            {
+                _gameConsoleView.DisplayGamePlayScreen("Level 3 Reached!", "You have reached level 3! Congradulations!", ActionMenu.MainMenu, "");
+            }
+            else if (_gameAdventurer.ExperiencePoints == 300)
+            {
+                _gameConsoleView.DisplayGamePlayScreen("Level 4 Reached!", "You have reached level 3! Congradulations!", ActionMenu.MainMenu, "");
+            }
+            else if (_gameAdventurer.ExperiencePoints == 400)
+            {
+                _gameConsoleView.DisplayGamePlayScreen("Level 5 Reached!", "You have reached level 3! Congradulations!", ActionMenu.MainMenu, "");
+            }
+            else if (_gameAdventurer.ExperiencePoints == 500)
+            {
+                _gameConsoleView.DisplayGamePlayScreen("Level 6 Reached!", "You have reached level 3! Congradulations!", ActionMenu.MainMenu, "");
+            }
+        }
+        
+        
+        //private void DungeonRoomAccess()
+        //{
+            
+
+        //    if (_gameDungeon.GetGameObjectById(2))
+        //    {
+                
+        //    }
+        //}
         #endregion
     }
 }
